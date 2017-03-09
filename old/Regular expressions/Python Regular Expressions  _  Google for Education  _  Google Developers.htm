@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html class="chekov" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/linkid.js" async="" type="text/javascript"></script><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/analytics.js" async=""></script><script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+</script><meta charset="utf-8"><meta name="xsrf_token" content="oEXCg37pJquCgMY8f7Wc3-P-v5SAtrsa38DWmehleAc6MTQ3MzE1OTYxODE1MTc4MA"><link rel="canonical" href="https://developers.google.com/edu/python/regular-expressions"><link rel="alternate" href="https://developers.google.com/edu/python/regular-expressions" hreflang="en"><link rel="shortcut icon" href="https://developers.google.com/_static/43c2455d8f/images/favicon.png"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="publisher" href="https://plus.google.com/+GoogleDevelopers/"><link rel="stylesheet" href="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/css.css"><link rel="stylesheet" href="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/devsite-cyan.css"><link rel="apple-touch-icon" href="https://developers.google.com/_static/43c2455d8f/images/touch-icon.png"><link data-title="Google Developers" aria-label="Google Developers" data-tooltip="Google Developers" data-tooltip-align="b,c" rel="search" type="application/opensearchdescription+xml" href="https://developers.google.com/s/opensearch.xml"><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/jquery.js"></script><meta property="og:site_name" content="Google Developers"><meta property="og:type" content="website"><meta property="og:url" content="https://developers.google.com/edu/python/regular-expressions"><meta property="og:locale" content="en"><script>
+    var ___gcfg = ___gcfg || {};
+    ___gcfg.lang = 'en';
+  </script><title>Python Regular Expressions &nbsp;|&nbsp; Google for Education
+      &nbsp;|&nbsp; Google Developers</title><meta property="og:title" content="Python Regular Expressions &nbsp;|&nbsp; Google for Education
+      &nbsp;|&nbsp; Google Developers"><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/prompt_embed_static.js" type="text/javascript" charset="utf-8"></script></head><body class="devsite-doc-page
+               
+               devsite-header-no-upper-tabs
+               devsite-header-no-lower-tabs no-touch" id="top_of_page"><div style="margin-top: 0px;" class="devsite-wrapper"><header style="position: fixed;" class="devsite-top-section nocontent"><div style="position: relative;" class="devsite-top-logo-row-wrapper-wrapper"><div class="devsite-top-logo-row-wrapper"><div class="devsite-top-logo-row devsite-full-site-width"><button type="button" class="devsite-expand-section-nav devsite-header-icon-button
+                                     button-flat material-icons gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Hamburger menu"></button><div class="devsite-product-name-wrapper"><span class="devsite-product-name"><ul class="devsite-breadcrumb-list"><li class="devsite-breadcrumb-item"><a href="https://developers.google.com/edu/" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Upper Header" data-value="1">
+    
+    
+      
+        Google for Education
+      
+    
+    
+    </a></li></ul></span></div><div class="devsite-header-upper-tabs"></div><form class="devsite-search-form" action="https://developers.google.com/s/results/" method="GET" id="top-search"><div id="searchbox" class="devsite-searchbox"><input placeholder="Search" class="devsite-search-field devsite-search-query" name="q" autocomplete="off" type="text"><div class="devsite-search-image material-icons"></div></div><input name="p" id="search_project" value="/edu/" data-project-name="Google for Education" data-project-path="/edu/" data-query-match="" type="hidden"><input class="suggest-project" value="Google for Education" type="hidden"><div class="devsite-popout devsite-popout-closed"><div style="display: none;" class="devsite-suggest-results"></div><div class="devsite-history-container"><div class="devsite-history-wrapper"><div class="devsite-history-side-column"><div class="devsite-history-icon material-icons"></div></div><div class="devsite-history-main-column">Sign in to see the pages you visit often.<div class="devsite-history-footer"><a href="https://myaccount.google.com/privacy#accounthistory" class="devsite-history-preferences-link button button-white">History Preferences</a></div></div></div></div></div></form><a class="devsite-header-link gc-analytics-event" href="https://developers.google.com/products/" data-category="Site-Wide Custom Events" data-label="Site header link"><div class="devsite-header-link-icon material-icons">
+            list
+          </div><div class="devsite-header-link-label">All Products</div></a><button type="button" class="devsite-search-button devsite-header-icon-button button-flat
+                                     material-icons"></button><a href="https://www.google.com/accounts/ServiceLogin?passive=true&amp;continue=https%3A%2F%2Fdevelopers.google.com%2Fedu%2Fpython%2Fregular-expressions&amp;service=ahsid" class="devsite-user-signin devsite-top-button button gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Sign in button">
+  
+  Sign in
+</a></div></div></div><div style="margin-top: 0px;" class="devsite-collapsible-section"><div class="devsite-header-background devsite-full-site-width"></div></div></header><script>
+  if (window.jQuery) {
+    $(document).ready(function() {
+      if (window.devsite && window.devsite.search) {
+        
+        window.devsite.search.init('en')
+      }
+    });
+  }
+</script><div id="gc-wrapper" itemscope="" itemtype="http://schema.org/Article"><input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}" type="hidden"><input class="google-analytics-id-json" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: &quot;en&quot;, &quot;dimension4&quot;: &quot;Google for Education&quot;, &quot;dimension5&quot;: &quot;en&quot;, &quot;dimension3&quot;: false, &quot;dimension1&quot;: &quot;Signed out&quot;, &quot;dimension8&quot;: null}, &quot;gaid&quot;: &quot;UA-49880327-1&quot;}" type="hidden"><script>
+      var dataLayer = [{"freeTrialEligibleUser": "False", "language": {"requested": "en", "served": "en"}, "projectName": "Google for Education", "scriptsafe": null, "signedIn": "False", "internalUser": "False"}];
+    </script>
+
+      
+        <div class="devsite-site-mask"></div>
+        
+  
+
+<nav style="left: -256px;" class="devsite-nav-responsive devsite-nav nocontent" tabindex="0">
+  
+  
+  <div class="devsite-nav-responsive-sidebar-panel">
+    
+    <nav class="devsite-nav-responsive-sidebar">
+      <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Python Course</span></span><a class="devsite-nav-toggle devsite-nav-toggle-expanded material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Overview</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/set-up" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Python Set Up</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/introduction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Introduction</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/strings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Strings</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/lists" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Lists</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/sorting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Sorting</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/dict-files" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Dicts and Files</span></a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/edu/python/regular-expressions" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Regular Expressions</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/utilities" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Utilities</span></a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Lecture Videos day1,<wbr> day2</span></span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>1 Introduction,<wbr> strings</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=EPYupizJYQI" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>2 Lists and sorting</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=haycL41dAhg" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>3 Dicts and files</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>1 Regular expr</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>2 Utilities</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>3 Utilities urllib</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>4 Conclusions</span></a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Python Exercises</span></span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/basic" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Basic Exercises</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/baby-names" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Baby Names Exercise</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/copy-special" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Copy Special Exercise</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/log-puzzle" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Log Puzzle Exercise</span></a></li></ul></li></ul>
+    </nav>
+  </div>
+  
+</nav>
+
+
+        <div style="margin-top: 88px;" class="devsite-main-content clearfix">
+
+        
+        
+
+        
+  
+  
+    
+    
+      
+  <nav style="left: auto; max-height: 543px; position: fixed; top: 72px;" class="devsite-section-nav devsite-nav nocontent">
+    <ul class="devsite-nav-list devsite-nav-expandable"><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Python Course</span></span><a class="devsite-nav-toggle devsite-nav-toggle-expanded material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Overview</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/set-up" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Python Set Up</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/introduction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Introduction</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/strings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Strings</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/lists" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Lists</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/sorting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Sorting</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/dict-files" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Dicts and Files</span></a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://developers.google.com/edu/python/regular-expressions" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Regular Expressions</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/utilities" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Utilities</span></a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Lecture Videos day1,<wbr> day2</span></span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=tKTZoB2Vjuk" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>1 Introduction,<wbr> strings</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=EPYupizJYQI" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>2 Lists and sorting</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=haycL41dAhg" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>1.<wbr>3 Dicts and files</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=kWyoYtvJpe4" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>1 Regular expr</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=uKZ8GBKmeDM" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>2 Utilities</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=Nn2KQmVF5Og" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>3 Utilities urllib</span></a></li><li class="devsite-nav-item"><a href="http://www.youtube.com/watch?v=IcteAbMC1Ok" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>2.<wbr>4 Conclusions</span></a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span tabindex="0" class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0"><span>Python Exercises</span></span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/basic" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Basic Exercises</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/baby-names" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Baby Names Exercise</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/copy-special" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Copy Special Exercise</span></a></li><li class="devsite-nav-item"><a href="https://developers.google.com/edu/python/exercises/log-puzzle" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click"><span>Log Puzzle Exercise</span></a></li></ul></li></ul>
+  </nav>
+
+    
+
+    
+  <nav style="position: fixed; left: 1165px; max-height: 543px; top: 72px;" class="devsite-page-nav devsite-nav"><ul class="devsite-page-nav-list"><li class="devsite-nav-item devsite-nav-item-heading"><a href="#top_of_page" class="devsite-nav-title"><span>Contents</span></a></li><li class="devsite-nav-item"><a href="#basic-patterns" class="devsite-nav-title devsite-nav-active"><span>Basic Patterns</span></a></li><li class="devsite-nav-item"><a href="#basic-examples" class="devsite-nav-title"><span>Basic Examples</span></a></li><li class="devsite-nav-item"><a href="#repetition" class="devsite-nav-title"><span>Repetition</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#leftmost--largest" class="devsite-nav-title"><span>Leftmost &amp; Largest</span></a></li></ul></li><li class="devsite-nav-item"><a href="#repetition-examples" class="devsite-nav-title"><span>Repetition Examples</span></a></li><li class="devsite-nav-item"><a href="#emails-example" class="devsite-nav-title"><span>Emails Example</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#square-brackets" class="devsite-nav-title"><span>Square Brackets</span></a></li></ul></li><li class="devsite-nav-item"><a href="#group-extraction" class="devsite-nav-title"><span>Group Extraction</span></a></li><li class="devsite-nav-item"><a href="#findall" class="devsite-nav-title"><span>findall</span></a></li><li class="devsite-nav-item"><a href="#findall-with-files" class="devsite-nav-title"><span>findall With Files</span></a></li><li class="devsite-nav-item"><a href="#findall-and-groups" class="devsite-nav-title"><span>findall and Groups</span></a></li><li class="devsite-nav-item"><a href="#re-workflow-and-debug" class="devsite-nav-title"><span>RE Workflow and Debug</span></a></li><li class="devsite-nav-item"><a href="#options" class="devsite-nav-title"><span>Options</span></a></li><li class="devsite-nav-item"><a href="#greedy-vs-non-greedy-optional" class="devsite-nav-title"><span>Greedy vs.<wbr> Non-Greedy (optional)</span></a></li><li class="devsite-nav-item"><a href="#substitution-optional" class="devsite-nav-title"><span>Substitution (optional)</span></a></li><li class="devsite-nav-item"><a href="#exercise" class="devsite-nav-title"><span>Exercise</span></a></li></ul></nav>
+
+
+      <article class="devsite-article">
+        <article class="devsite-article-inner">
+  
+          
+  
+
+
+
+  
+  <nav class="devsite-breadcrumb-nav devsite-nav">
+    
+
+
+<ul class="devsite-breadcrumb-list">
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <a href="https://developers.google.com/products/" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Breadcrumbs" data-value="1">
+    
+    
+      Products
+    
+    
+    </a>
+    
+  </li>
+  
+  <li class="devsite-breadcrumb-item">
+    
+    
+    <div class="devsite-breadcrumb-guillemet material-icons"></div>
+    
+    
+    <a href="https://developers.google.com/edu/" class="devsite-breadcrumb-link gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Breadcrumbs" data-value="2">
+    
+    
+      Google for Education
+    
+    
+    </a>
+    
+  </li>
+  
+</ul>
+
+  </nav>
+  
+  
+  <h1 itemprop="name" class="devsite-page-title">
+    Python Regular Expressions
+  </h1>
+  
+  
+  <nav class="devsite-page-nav-embedded devsite-nav"><ul class="devsite-page-nav-list"><li class="devsite-nav-item devsite-nav-item-heading"><a href="#top_of_page" class="devsite-nav-title"><span>Contents</span></a><button data-title="Expand/collapse contents" aria-label="Expand/collapse contents" data-tooltip="Expand/collapse contents" data-tooltip-align="b,c" type="button" class="devsite-nav-show-all button-transparent material-icons"></button></li><li class="devsite-nav-item"><a href="#basic-patterns" class="devsite-nav-title"><span>Basic Patterns</span></a></li><li class="devsite-nav-item"><a href="#basic-examples" class="devsite-nav-title"><span>Basic Examples</span></a></li><li class="devsite-nav-item"><a href="#repetition" class="devsite-nav-title"><span>Repetition</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#leftmost--largest" class="devsite-nav-title"><span>Leftmost &amp; Largest</span></a></li></ul></li><li class="devsite-nav-item"><a href="#repetition-examples" class="devsite-nav-title devsite-nav-item-hidden"><span>Repetition Examples</span></a></li><li class="devsite-nav-item"><a href="#emails-example" class="devsite-nav-title devsite-nav-item-hidden"><span>Emails Example</span></a><ul class="devsite-page-nav-list"><li class="devsite-nav-item"><a href="#square-brackets" class="devsite-nav-title devsite-nav-item-hidden"><span>Square Brackets</span></a></li></ul></li><li class="devsite-nav-item"><a href="#group-extraction" class="devsite-nav-title devsite-nav-item-hidden"><span>Group Extraction</span></a></li><li class="devsite-nav-item"><a href="#findall" class="devsite-nav-title devsite-nav-item-hidden"><span>findall</span></a></li><li class="devsite-nav-item"><a href="#findall-with-files" class="devsite-nav-title devsite-nav-item-hidden"><span>findall With Files</span></a></li><li class="devsite-nav-item"><a href="#findall-and-groups" class="devsite-nav-title devsite-nav-item-hidden"><span>findall and Groups</span></a></li><li class="devsite-nav-item"><a href="#re-workflow-and-debug" class="devsite-nav-title devsite-nav-item-hidden"><span>RE Workflow and Debug</span></a></li><li class="devsite-nav-item"><a href="#options" class="devsite-nav-title devsite-nav-item-hidden"><span>Options</span></a></li><li class="devsite-nav-item"><a href="#greedy-vs-non-greedy-optional" class="devsite-nav-title devsite-nav-item-hidden"><span>Greedy vs.<wbr> Non-Greedy (optional)</span></a></li><li class="devsite-nav-item"><a href="#substitution-optional" class="devsite-nav-title devsite-nav-item-hidden"><span>Substitution (optional)</span></a></li><li class="devsite-nav-item"><a href="#exercise" class="devsite-nav-title devsite-nav-item-hidden"><span>Exercise</span></a></li><li class="devsite-nav-item"><button data-title="Expand/collapse contents" aria-label="Expand/collapse contents" data-tooltip="Expand/collapse contents" data-tooltip-align="b,c" type="button" class="button-flat devsite-nav-more-items material-icons"></button></li></ul></nav>
+  
+  <div class="devsite-article-body clearfix
+            " itemprop="articleBody">
+    
+
+
+
+<p>
+
+</p>
+
+<p>Regular expressions are a powerful language for matching text 
+patterns. This page gives a basic introduction to regular expressions 
+themselves sufficient for our Python exercises and shows how regular 
+expressions work in Python. The Python "re" module provides regular 
+expression support. <!-- link to better/more regex materials here, e.g. http://www.amk.ca/python/howto/regex/ --></p>
+
+<p>In Python a regular expression search is typically written as:</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">pat</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span></pre>
+
+<p>The re.search() method takes a regular expression pattern and a 
+string and searches for that pattern within the string. If the search is
+ successful, search() returns a match object or None otherwise. 
+Therefore, the search is usually immediately followed by an if-statement
+ to test if the search succeeded, as shown in the following example 
+which searches for the pattern 'word:' followed by a 3 letter word 
+(details below):</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'an example word:cat!!'</span><span class="pln"><br>match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'word:\w\w\w'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br></span><span class="com"># If-statement after search() tests if it succeeded</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'found'</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="com">## 'found word:cat'</span><span class="pln"><br>&nbsp; </span><span class="kwd">else</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> </span><span class="str">'did not find'</span></pre>
+
+<p>The code <code>match = re.search(pat, str)</code> stores the search result in a variable named "match". Then the if-statement tests the match -- if true the search succeeded and match.group() is the matching text (e.g. 'word:cat'). Otherwise if the match is false (None to be more specific), then the search did not succeed, and there is no matching text.</p>
+
+<p>The 'r' at the start of the pattern string designates a python "raw" string which passes through backslashes without change which is very handy for regular expressions (Java needs this feature badly!). I recommend that you always write pattern strings with the 'r' just as a habit.</p>
+
+<h2 id="basic-patterns"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Basic Patterns</h2>
+
+<p>The power of regular expressions is that they can specify patterns, not just fixed characters. Here are the most basic patterns which match single chars:</p>
+
+<ul>
+   <li> a, X, 9, &lt;  -- ordinary characters just match themselves exactly. The meta-characters which do not match themselves because they have special meanings are: . ^ $ * + ? { [ ] \ | ( ) (details below)
+
+   </li><li> . (a period) -- matches any single character except newline '\n'
+
+   </li><li> \w -- (lowercase w) matches a "word" character: a letter or digit or underbar [a-zA-Z0-9_]. Note that although "word" is the mnemonic for this, it only matches a single word char, not a whole word. \W (upper case W) matches any non-word character.
+
+   </li><li> \b -- boundary between word and non-word
+
+   </li><li> \s -- (lowercase s) matches a single whitespace character -- space, newline, return, tab, form [ \n\r\t\f]. \S (upper case S) matches any non-whitespace character.
+
+   </li><li> \t, \n, \r  -- tab, newline, return
+
+   </li><li> \d -- decimal digit [0-9] (some older regex utilities do not support but \d, but they all support \w and \s)
+
+   </li><li> ^ = start, $ = end -- match the start or end of the string
+
+   </li><li> \   -- inhibit the "specialness" of a character. So, for example, use \. to match a period or \\ to match a slash. If you are unsure if a character has special meaning, such as '@', you can put a slash in front of it, \@, to make sure it is treated just as a character.
+</li></ul>
+
+<h2 id="basic-examples"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Basic Examples</h2>
+
+<p>Joke: what do you call a pig with three eyes?  piiig!</p>
+
+<p>The basic rules of regular expression search for a pattern within a string are:</p>
+
+<ul>
+   <li> The search proceeds through the string from start to end, stopping at the first match found
+
+   </li><li> All of the pattern must be matched, but not all of the string
+
+   </li><li> If <code>match = re.search(pat, str)</code> is successful, match is not None and in particular match.group() is the matching text
+</li></ul>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; </span><span class="com">## Search for pattern 'iii' in string 'piiig'.</span><span class="pln"><br>&nbsp; </span><span class="com">## All of the pattern must match, but it may appear anywhere.</span><span class="pln"><br>&nbsp; </span><span class="com">## On success, match.group() is matched text.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'iii'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iii"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'igs'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br><br>&nbsp; </span><span class="com">## . = any char but \n</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'..g'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"iig"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \d = digit char, \w = word char</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\d\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'p123g'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w\w\w'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'@@abcd!!'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"abc"</span></pre>
+
+<h2 id="repetition"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Repetition</h2>
+
+<p>Things get more interesting when you use + and * to specify repetition in the pattern</p>
+
+<ul>
+   <li> + -- 1 or more occurrences of the pattern to its left, e.g. 'i+' = one or more i's
+
+   </li><li> *  -- 0 or more occurrences of the pattern to its left
+
+   </li><li> ?  -- match 0 or 1 occurrences of the pattern to its left
+</li></ul>
+
+<h3 id="leftmost--largest">Leftmost &amp; Largest</h3>
+
+<p>First the search finds the leftmost match for the pattern, and second it tries to use up as much of the string as possible -- i.e. + and * go as far as possible (the + and * are said to be "greedy").</p>
+
+<h2 id="repetition-examples"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Repetition Examples</h2>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; </span><span class="com">## i+ = one or more i's, as many as possible.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'pi+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piiig'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"piii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Finds the first/leftmost solution, and within it drives the +</span><span class="pln"><br>&nbsp; </span><span class="com">## as far as possible (aka 'leftmost and largest').</span><span class="pln"><br>&nbsp; </span><span class="com">## In this example, note that it does not get to the second set of i's.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'i+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'piigiiii'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"ii"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## \s* = zero or more whitespace chars</span><span class="pln"><br>&nbsp; </span><span class="com">## Here look for 3 digits, possibly separated by whitespace.</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx1 2 &nbsp; 3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"1 2 &nbsp; 3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx12 &nbsp;3xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"12 &nbsp;3"</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\d\s*\d\s*\d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'xx123xx'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"123"</span><span class="pln"><br><br>&nbsp; </span><span class="com">## ^ = matches the start of string, so this fails:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'^b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;</span><span class="kwd">not</span><span class="pln"> found</span><span class="pun">,</span><span class="pln"> match </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">None</span><span class="pln"><br>&nbsp; </span><span class="com">## but without the ^ it succeeds:</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'b\w+'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'foobar'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> &nbsp;found</span><span class="pun">,</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="str">"bar"</span></pre>
+
+<h2 id="emails-example"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Emails Example</h2>
+
+<p>Suppose you want to find the email address inside the string 'xyz alice-b@google.com purple monkey'. We'll use this as a running example to demonstrate more regular expression features. Here's an attempt using the pattern r'\w+@\w+':</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'\w+@\w+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'b@google'</span></pre>
+
+<p>The search does not get the whole email address in this case because the \w does not match the '-' or '.' in the address. We'll fix this using the regular expression features below.</p>
+
+<h3 id="square-brackets">Square Brackets</h3>
+
+<p>Square brackets can be used to indicate a set of chars, so [abc] matches 'a' or 'b' or 'c'. The codes \w, \s etc. work inside square brackets too with the one exception that dot (.) just means a literal dot. For the emails problem, the square brackets are an easy way to add '.' and '-' to the set of chars which can appear around the @ with the pattern r'[\w.-]+@[\w.-]+' to get the whole email address:</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w.-]+@[\w.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b@google.com'</span></pre>
+
+(More square-bracket features) You can also use a dash to indicate a range, so [a-z] matches all lowercase letters. To use a dash without indicating a range, put the dash last, e.g. [abc-]. An up-hat (^) at the start of a square-bracket set inverts it, so [^ab] means any char except 'a' or 'b'.
+
+<h2 id="group-extraction"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Group Extraction</h2>
+
+<p>The "group" feature of a regular expression allows you to pick out parts of the matching text. Suppose for the emails problem that we want to extract the username and host separately. To do this, add parenthesis ( ) around the username and host in the pattern, like this: r'([\w.-]+)@([\w.-]+)'. In this case, the parenthesis do not change what the pattern will match, instead they establish logical "groups" inside of the match text. On a successful search, match.group(1) is the match text corresponding to the 1st left parenthesis, and match.group(2) is the text corresponding to the 2nd left parenthesis. The plain match.group() is still the whole match text as usual.</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice-b@google.com monkey dishwasher'</span><span class="pln"><br>&nbsp; match </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="str">'([\w.-]+)@([\w.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">if</span><span class="pln"> match</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">()</span><span class="pln"> &nbsp; </span><span class="com">## 'alice-b@google.com' (the whole match)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">1</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'alice-b' (the username, group 1)</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> match</span><span class="pun">.</span><span class="kwd">group</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> &nbsp;</span><span class="com">## 'google.com' (the host, group 2)</span></pre>
+
+<p>A common workflow with regular expressions is that you write a pattern for the thing you are looking for, adding parenthesis groups to extract the parts you want.</p>
+
+<h2 id="findall"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>findall</h2>
+
+findall() is probably the single most powerful function in the re module. Above we used re.search() to find the first match for a pattern. findall() finds *all* the matches and returns them as a list of strings, with each string representing one match.
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; </span><span class="com">## Suppose we have a text with many email addresses</span><span class="pln"><br>&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br><br>&nbsp; </span><span class="com">## Here re.findall() returns a list of all the found email strings</span><span class="pln"><br>&nbsp; emails </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'[\w\.-]+@[\w\.-]+'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"> </span><span class="com">## ['alice@google.com', 'bob@abc.com']</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> email </span><span class="kwd">in</span><span class="pln"> emails</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com"># do something with each found email string</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> email</span></pre>
+
+<h2 id="findall-with-files"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>findall With Files</h2>
+
+<p>For files, you may be in the habit of writing a loop to iterate over the lines of the file, and you could then call findall() on each line. Instead, let findall() do the iteration for you -- much better! Just feed the whole file text into findall() and let it return a list of all the matches in a single step (recall that f.read() returns the whole text of a file in a single string):</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; </span><span class="com"># Open file</span><span class="pln"><br>&nbsp; f </span><span class="pun">=</span><span class="pln"> open</span><span class="pun">(</span><span class="str">'test.txt'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'r'</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com"># Feed the file text into findall(); it returns a list of all the found strings</span><span class="pln"><br>&nbsp; strings </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'some pattern'</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">.</span><span class="pln">read</span><span class="pun">())</span></pre>
+
+<h2 id="findall-and-groups"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>findall and Groups</h2>
+
+<p>The parenthesis ( ) group mechanism can be combined with findall(). If the pattern includes 2 or more parenthesis groups, then instead of returning a list of strings, findall() returns a list of *tuples*. Each tuple represents one match of the pattern, and inside the tuple is the group(1), group(2) .. data. So if 2 parenthesis groups are added to the email pattern, then findall() returns a list of tuples, each length 2 containing the username and host, e.g. ('alice', 'google.com').</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; tuples </span><span class="pun">=</span><span class="pln"> re</span><span class="pun">.</span><span class="pln">findall</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> tuples &nbsp;</span><span class="com">## [('alice', 'google.com'), ('bob', 'abc.com')]</span><span class="pln"><br>&nbsp; </span><span class="kwd">for</span><span class="pln"> tuple </span><span class="kwd">in</span><span class="pln"> tuples</span><span class="pun">:</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## username</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">print</span><span class="pln"> tuple</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span><span class="pln"> &nbsp;</span><span class="com">## host</span></pre>
+
+<p>Once you have the list of tuples, you can loop over it to do some computation for each tuple. If the pattern includes no parenthesis, then findall() returns a list of found strings as in earlier examples. If the pattern includes a single set of parenthesis, then findall() returns a list of strings corresponding to that single group. (Obscure optional feature: Sometimes you have paren ( ) groupings in the pattern, but which you do not want to extract. In that case, write the parens with a ?: at the start, e.g. (?: ) and that left paren will not count as a group result.)</p>
+
+<h2 id="re-workflow-and-debug"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>RE Workflow and Debug</h2>
+
+<p>Regular expression patterns pack a lot of meaning into just a few characters , but they are so dense, you can spend a lot of time debugging your patterns. Set up your runtime so you can run a pattern and print what it matches easily, for example by running it on a small test text and printing the result of findall(). If the pattern matches nothing, try weakening the pattern, removing parts of it so you get too many matches. When it's matching nothing, you can't make any progress since there's nothing concrete to look at. Once it's matching too much, then you can work on tightening it up incrementally to hit just what you want.</p>
+
+<h2 id="options"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Options</h2>
+
+<p>The re functions take options to modify the behavior of the pattern match. The option flag is added as an extra argument to the search() or findall() etc., e.g. re.search(pat, str, re.IGNORECASE).</p>
+<ul>
+   <li> IGNORECASE -- ignore upper/lowercase differences for matching, so 'a' matches both 'a' and 'A'.
+
+   </li><li> DOTALL -- allow dot (.) to match newline -- normally it matches anything but newline. This can trip you up -- you think .* matches everything, but by default it does not go past the end of a line. Note that \s (whitespace) includes newlines, so if you want to match a run of whitespace that may include a newline, you can just use \s*
+
+   </li><li> MULTILINE -- Within a string made of many lines, allow ^ and $ to match the start and end of each line. Normally ^/$ would just match the start and end of the whole string.
+</li></ul>
+
+<h2 id="greedy-vs-non-greedy-optional"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Greedy vs. Non-Greedy (optional)</h2>
+
+<p>This is optional section which shows a more advanced regular expression technique not needed for the exercises.</p>
+
+<p>Suppose you have text with tags in it: &lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so on&lt;/i&gt;</p>
+
+<p>Suppose you are trying to match each tag with the pattern '(&lt;.*&gt;)' -- what does it match first?</p>
+
+<p>The result is a little surprising, but the greedy aspect of the .* causes it to match the whole '&lt;b&gt;foo&lt;/b&gt; and &lt;i&gt;so on&lt;/i&gt;' as one big match. The problem is that the .* goes as far as is it can, instead of stopping at the first &gt; (aka it is "greedy").</p>
+
+<p>There is an extension to regular expression where you add a ? at the end, such as .*? or .+?, changing them to be non-greedy. Now they stop as soon as they can. So the pattern '(&lt;.*?&gt;)' will get just '&lt;b&gt;' as the first match, and '&lt;/b&gt;' as the second match, and so on getting each &lt;..&gt; pair in turn.  The style is typically that you use a .*?, and then immediately its right look for some concrete marker (&gt; in this case) that forces the end of the .*? run.</p>
+
+<p>The *? extension originated in Perl, and regular expressions that include Perl's extensions are known as Perl Compatible Regular Expressions  -- pcre. Python includes pcre support. Many command line utils etc. have a flag where they accept pcre patterns. </p>
+
+<p>An older but widely used technique to code this idea of "all of these chars except stopping at X" uses the square-bracket style. For the above you could write the pattern, but instead of .* to get all the chars, use [^&gt;]* which skips over all characters which are not &gt; (the leading ^ "inverts" the square bracket set, so it matches any char not in the brackets).</p>
+
+<h2 id="substitution-optional"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Substitution (optional)</h2>
+
+<p>The re.sub(pat, replacement, str) function searches for all the instances of pattern in the given string, and replaces them. The replacement string can include '\1', '\2' which refer to the text from group(1), group(2), and so on from the original matching text.</p>
+
+<p>Here's an example which searches for all the email addresses, and changes them to keep the user (\1) but have yo-yo-dyne.com as the host.</p>
+
+<pre class="prettyprint"><div data-title="Click to copy" aria-label="Click to copy" data-tooltip="Click to copy" data-tooltip-align="b,c" class="gc-analytics-event material-icons devsite-click-to-copy-button" data-category="Site-Wide Custom Events" data-label="Click To Copy" track-type="exampleCode" track-name="clickToCopy"></div><span class="pln">&nbsp; str </span><span class="pun">=</span><span class="pln"> </span><span class="str">'purple alice@google.com, blah monkey bob@abc.com blah dishwasher'</span><span class="pln"><br>&nbsp; </span><span class="com">## re.sub(pat, replacement, str) -- returns new string with all replacements,</span><span class="pln"><br>&nbsp; </span><span class="com">## \1 is group(1), \2 group(2) in the replacement</span><span class="pln"><br>&nbsp; </span><span class="kwd">print</span><span class="pln"> re</span><span class="pun">.</span><span class="kwd">sub</span><span class="pun">(</span><span class="pln">r</span><span class="str">'([\w\.-]+)@([\w\.-]+)'</span><span class="pun">,</span><span class="pln"> r</span><span class="str">'\1@yo-yo-dyne.com'</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span><span class="pln"><br>&nbsp; </span><span class="com">## purple alice@yo-yo-dyne.com, blah monkey bob@yo-yo-dyne.com blah dishwasher</span></pre>
+
+<h2 id="exercise"><a data-title="Back to top" aria-label="Back to top" data-tooltip="Back to top" data-tooltip-align="b,c" href="#top_of_page" class="devsite-back-to-top-link material-icons"></a>Exercise</h2>
+
+<p>To practice regular expressions, see the <a href="https://developers.google.com/edu/python/exercises/baby-names">Baby Names Exercise</a>.</p>
+
+
+
+
+
+
+      
+  </div>
+  
+
+  
+        
+<div class="devsite-content-footer nocontent">
+  
+  
+  
+    <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://developers.google.com/site-policies">Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+
+  
+    
+    <p class="devsite-content-footer-date" itemprop="datePublished" content="2012-12-13T01:16:45.614230">
+      
+      Last updated December 13, 2012.
+    </p>
+  
+
+</div>
+
+        </article>
+      </article>
+  
+
+        </div>
+      
+
+<footer class="devsite-footer-linkboxes nocontent
+               devsite-footer-linkboxes-all-backup"><nav class="devsite-full-site-width"><ul class="devsite-footer-linkboxes-list"><li class="devsite-footer-linkbox
+                 devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Connect</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://googledevelopers.blogspot.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Blog Link">
+              
+                Blog
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.facebook.com/Google-Developers-967415219957038/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Facebook Link">
+              
+                Facebook
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://plus.google.com/+GoogleDevelopers/posts" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer G+ Link">
+              
+                Google+
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://medium.com/google-developers" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Medium Link">
+              
+                Medium
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://twitter.com/googledevs" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Twitter Link">
+              
+                Twitter
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://www.youtube.com/user/GoogleDevelopers" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer YouTube Link">
+              
+                YouTube
+              
+            </a></li></ul></li><li class="devsite-footer-linkbox
+                 devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Programs</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://www.womentechmakers.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Women Techmakers">
+              
+                Women Techmakers
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developers.google.com/agency/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Agency">
+              
+                Agency Program
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developers.google.com/groups/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Groups">
+              
+                Google Developer Groups
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developers.google.com/experts/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Experts">
+              
+                Google Developer Experts
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developers.google.com/startups/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Startups">
+              
+                Startup Launchpad
+              
+            </a></li></ul></li><li class="devsite-footer-linkbox
+                 devsite-footer-linkbox-backup"><h3 class="devsite-footer-linkbox-heading">Developer Consoles</h3><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://console.developers.google.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Google Developers Console">
+              
+                Google API Console
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://play.google.com/apps/publish/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Play Developers Console">
+              
+                Google Play Developer Console
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://firebase.google.com/console/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Firebase Console">
+              
+                Firebase Console
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://cast.google.com/publish/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Cast SDK Developer Console">
+              
+                Cast SDK Developer Console
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://chrome.google.com/webstore/developer/dashboard" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Chrome Web Store Developer Dashboard">
+              
+                Chrome Web Store Dashboard
+              
+            </a></li></ul></li><li class="devsite-footer-linkbox
+                 devsite-footer-linkbox-sites"><a href="https://developers.google.com/" class="gc-analytics-event devsite-footer-linkbox-logo-link" data-category="Site-Wide Custom Events" data-label="Footer Google Developers Link"><img class="devsite-footer-linkbox-logo" src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/logo-color-knockout.svg"></a><ul class="devsite-footer-linkbox-list"><li class="devsite-footer-linkbox-item"><a href="https://developer.android.com/index.html" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Android Link">
+              
+                Android
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developer.chrome.com/home" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Chrome Link">
+              
+                Chrome
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://firebase.google.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Firebase Link">
+              
+                Firebase
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://cloud.google.com/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Cloud Link">
+              
+                Google Cloud Platform
+              
+            </a></li><li class="devsite-footer-linkbox-item"><a href="https://developers.google.com/products/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Products Link">
+              
+                All Products
+              
+            </a></li></ul></li></ul></nav></footer><footer class="devsite-utility-footer"><nav class="devsite-utility-footer-nav devsite-nav devsite-full-site-width"><span class="devsite-utility-footer-links"><a href="https://developers.google.com/site-terms/">Terms</a>
+      &nbsp; | &nbsp;
+      
+      <a href="https://www.google.com/intl/en/privacy/" class="gc-analytics-event" data-category="Site-Wide Custom Events" data-label="Footer Privacy Link">Privacy</a></span><form class="devsite-utility-footer-language" action="/i18n/setlang/" method="post"><input name="xsrf_token" value="oEXCg37pJquCgMY8f7Wc3-P-v5SAtrsa38DWmehleAc6MTQ3MzE1OTYxODE1MTc4MA" type="hidden"><input name="next" value="/edu/python/regular-expressions" type="hidden"><select style="display: none;" class="devsite-utility-footer-language-select kd-select" name="language"><option value="ar">
+            العربيّة
+          </option><option value="bg">
+            български
+          </option><option value="ca">
+            català
+          </option><option value="zh-cn">
+            简体中文
+          </option><option value="zh-tw">
+            繁體中文
+          </option><option value="hr">
+            Hrvatski
+          </option><option value="cs">
+            česky
+          </option><option value="da">
+            dansk
+          </option><option value="nl">
+            Nederlands
+          </option><option value="en" selected="selected">
+            English
+          </option><option value="fa">
+            فارسی
+          </option><option value="fi">
+            suomi
+          </option><option value="fr">
+            français
+          </option><option value="de">
+            Deutsch
+          </option><option value="el">
+            Ελληνικά
+          </option><option value="he">
+            עברית
+          </option><option value="hi">
+            Hindi
+          </option><option value="hu">
+            Magyar
+          </option><option value="id">
+            Bahasa Indonesia
+          </option><option value="it">
+            italiano
+          </option><option value="ja">
+            日本語
+          </option><option value="ko">
+            한국어
+          </option><option value="lv">
+            latviešu
+          </option><option value="lt">
+            Lietuviškai
+          </option><option value="nb">
+            norsk (bokmål)
+          </option><option value="nn">
+            norsk (nynorsk)
+          </option><option value="pl">
+            polski
+          </option><option value="pt-br">
+            Português Brasileiro
+          </option><option value="pt">
+            Português
+          </option><option value="ro">
+            Română
+          </option><option value="ru">
+            Русский
+          </option><option value="sr">
+            српски
+          </option><option value="sk">
+            slovenský
+          </option><option value="sl">
+            Slovenščina
+          </option><option value="es">
+            español
+          </option><option value="es-419">
+            Español (América Latina)
+          </option><option value="sv">
+            svenska
+          </option><option value="th">
+            ภาษาไทย
+          </option><option value="tr">
+            Türkçe
+          </option><option value="uk">
+            Українська
+          </option><option value="vi">
+            Tiếng Việt
+          </option></select><span class="kd-button kd-menubutton kd-select"><div class="label">
+            English
+          </div><div class="kd-disclosureindicator"></div></span></form></nav></footer></div><script async="" defer="defer" src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/api.js"></script><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/jquery_ui-bundle.js"></script><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/a"></script><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/script_foot_closure.js"></script><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/script_foot.js"></script><script>
+        (function($) {
+          
+          devsite.devsite.Init($, 'devsite', '[]',
+              {'ALLOWED_HOSTS': ['.android.com', '.appspot.com', '.gonglchuangl.net', '.google.cn', '.google.com', '.googleplex.com', '.devsitetest.how'], 'VERSION_HASH': '43c2455d8f'}, '', 'en',
+              true, '',
+              true,
+              {"51470233c56fc1fde50f00b73c52b216": false, "700def1a83e356c06c0925afb05de4b0": false, "6749dcb526ce9bde6993550c7d928d24": true, "098dafe57affddc137df300142652cfd": false, "4c1e030265e73d132474df5ca11667f1": false}, '/edu/',
+              'https://developers.google.com/');
+        })(jQuery);
+
+        
+        devsite.localInit = function() {
+          
+        };
+      </script><script>
+      $('.devsite-utility-footer-language-select').each(function() {
+        $(this).change(function(){$('.devsite-utility-footer-language').submit();});
+      });
+      </script><script async="" defer="defer" src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/async_survey"></script></div><span id="devsite-request-elapsed" data-request-elapsed="259.380102158"></span>
+<ul style="left: 1229px; right: auto; top: 7221.83px;" class="kd-menulist devsite-hidden"><li class="kd-menulistitem">
+            العربيّة
+          </li><li class="kd-menulistitem">
+            български
+          </li><li class="kd-menulistitem">
+            català
+          </li><li class="kd-menulistitem">
+            简体中文
+          </li><li class="kd-menulistitem">
+            繁體中文
+          </li><li class="kd-menulistitem">
+            Hrvatski
+          </li><li class="kd-menulistitem">
+            česky
+          </li><li class="kd-menulistitem">
+            dansk
+          </li><li class="kd-menulistitem">
+            Nederlands
+          </li><li class="kd-menulistitem devsite-selected-option">
+            English
+          </li><li class="kd-menulistitem">
+            فارسی
+          </li><li class="kd-menulistitem">
+            suomi
+          </li><li class="kd-menulistitem">
+            français
+          </li><li class="kd-menulistitem">
+            Deutsch
+          </li><li class="kd-menulistitem">
+            Ελληνικά
+          </li><li class="kd-menulistitem">
+            עברית
+          </li><li class="kd-menulistitem">
+            Hindi
+          </li><li class="kd-menulistitem">
+            Magyar
+          </li><li class="kd-menulistitem">
+            Bahasa Indonesia
+          </li><li class="kd-menulistitem">
+            italiano
+          </li><li class="kd-menulistitem">
+            日本語
+          </li><li class="kd-menulistitem">
+            한국어
+          </li><li class="kd-menulistitem">
+            latviešu
+          </li><li class="kd-menulistitem">
+            Lietuviškai
+          </li><li class="kd-menulistitem">
+            norsk (bokmål)
+          </li><li class="kd-menulistitem">
+            norsk (nynorsk)
+          </li><li class="kd-menulistitem">
+            polski
+          </li><li class="kd-menulistitem">
+            Português Brasileiro
+          </li><li class="kd-menulistitem">
+            Português
+          </li><li class="kd-menulistitem">
+            Română
+          </li><li class="kd-menulistitem">
+            Русский
+          </li><li class="kd-menulistitem">
+            српски
+          </li><li class="kd-menulistitem">
+            slovenský
+          </li><li class="kd-menulistitem">
+            Slovenščina
+          </li><li class="kd-menulistitem">
+            español
+          </li><li class="kd-menulistitem">
+            Español (América Latina)
+          </li><li class="kd-menulistitem">
+            svenska
+          </li><li class="kd-menulistitem">
+            ภาษาไทย
+          </li><li class="kd-menulistitem">
+            Türkçe
+          </li><li class="kd-menulistitem">
+            Українська
+          </li><li class="kd-menulistitem">
+            Tiếng Việt
+          </li></ul><div id="contain-402"></div><script src="Python%20Regular%20Expressions%20%C2%A0_%C2%A0%20Google%20for%20Education%20%C2%A0_%C2%A0%20Google%20Developers_files/prompt"></script></body></html>

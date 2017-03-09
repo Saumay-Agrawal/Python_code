@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://www.programiz.com/python-programming/inheritance -->
+<html class="no-js js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+<link rel="shortcut icon" href="http://www.programiz.com/sites/tutorial2program/files/programiz-favicon_2.png" type="image/png">
+<meta name="description" content="Inheritance is a powerful feature in object oriented programming. It refers to defining a new class with little or no modification to an existing class. The new class is called derived (or child) class and the one from which it inherits is called the base (or parent) class. Derived class inherits features from the base class, adding new features to it. This results into re-usability of code.">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="http://www.programiz.com/python-programming/inheritance">
+<link rel="shortlink" href="http://www.programiz.com/node/40">
+<meta name="google-site-verification" content="17JZPeRuYVi-HGRJIG06Wx4uVrQSGPSGk7RLbZ7LaTA">
+  <title>Python Inheritance</title>
+  <link href="./Python Inheritance_files/css" rel="stylesheet">
+  <link href="./Python Inheritance_files/icon" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_VWGhZkkR4B4tMJA7PC_wov8dAxaI-MS03BCM3K8jjJA.css" media="screen">
+<link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_hYCLW089C9S9sP3ZYkuG6R-Q5ZHbEhblZBFjwZ_bE_I.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_MnXiytJtb186Ydycnpwpw34cuUsHaKc80ey5LiQXhSY.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_WdYlUk_zK9RlO97KAdSKeikekYPCrIft-g8IgC4T8EA.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Python Inheritance_files/css_5aQvY9eDN5XIiayMtb_05FejVu1px73z0dS0wFjNJKo.css" media="all">
+  <script async="" src="./Python Inheritance_files/async-ads.js.download"></script><script type="text/javascript" async="" src="./Python Inheritance_files/cse.js.download"></script><script async="" src="./Python Inheritance_files/analytics.js.download"></script><script type="text/javascript" src="./Python Inheritance_files/jquery.min.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Python Inheritance_files/js_3TykeRWpejhD4-J3vdlaNXdULg9xhOZhbsppK0o2bUs.js.download"></script>
+<script type="text/javascript" src="./Python Inheritance_files/js_Xdog1yvbsHUl33-wo9ctRnQMgE_3uBBG15y3yJm_2eY.js.download"></script>
+<script type="text/javascript" src="./Python Inheritance_files/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-36675496-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="./Python Inheritance_files/js_P20pi6Fvgxrq5VBfAnIkIqFYqxi4PCv9hUbZo64f-6Y.js.download"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"ultimate","theme_token":"_RdoDE-EckvZZHWm7ZbtNDQnLlAmcUPtj-YdR1L3DAo","js":{"sites\/all\/libraries\/prettify\/prettify.js":1,"sites\/all\/modules\/prettify\/prettify.loader.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/codefilter\/codefilter.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"1":1,"sites\/all\/themes\/Ultimate\/sidr-package-1.2.1\/jquery.sidr.min.js":1,"sites\/all\/themes\/Ultimate\/js\/plugins.js":1,"sites\/all\/themes\/Ultimate\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/codefilter\/codefilter.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/Ultimate\/css\/normalize.css":1,"sites\/all\/themes\/Ultimate\/css\/main.css":1,"sites\/all\/themes\/Ultimate\/sidr-package-1.2.1\/stylesheets\/jquery.sidr.dark.css":1,"sites\/all\/modules\/prettify\/styles\/stackoverflow.css":1}},"prettify":{"linenums":false,"match":"","nocode":"nocode","custom":[],"markup":{"precode":true,"code":false,"pre":false}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+<script type="text/javascript" async="" src="http://s3.buysellads.com/ac/bsa.js"></script><script type="text/javascript" src="./Python Inheritance_files/jquery.inputmask.bundle.min.js.download"></script><script src="./Python Inheritance_files/jsapi" type="text/javascript"></script><link type="text/css" href="./Python Inheritance_files/default+en.css" rel="stylesheet"><link type="text/css" href="./Python Inheritance_files/default.css" rel="stylesheet"><script type="text/javascript" src="./Python Inheritance_files/default+en.I.js.download"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Verdana, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Verdana, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #EFEFEF;
+background-color: #2C394B;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #E9E9E9;
+background-color: #E9E9E9;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #FF9900;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #FF9900;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #0000CC;
+}
+.gsc-cursor-page {
+color: #0000CC;
+}
+a.gsc-trailing-more-results:link {
+color: #0000CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #000000;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #E9E9E9;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #FF9900;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #336699;
+background-color: #FFFFFF;
+}
+.gsc-completion-title {
+color: #0000CC;
+}
+.gsc-completion-snippet {
+color: #000000;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #0000CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #000000;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #008000;
+}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script type="text/javascript" src="http://127.0.0.1:10029/public/linkverifierhelper.js"></script><script type="text/javascript" id="P0" src="http://127.0.0.1:10029/get-dlv-settings/?_callback=__gwt_jsonp__.P0.onSuccess"></script><style>.daplinkverifier{margin:0;padding:0 !important;text-align:left;text-decoration:none;display:inline;position:absolute;z-index:100000;cursor:default !important;direction:ltr;zoom:1;background-color:#fff;}.daplinkverifier a,.daplinkverifier a:hover{margin:0 !important;padding:0 !important;border:0 currentColor !important;color:black !important;text-decoration:none !important;display:inline !important;background-image:none !important;}.daplv-Valid{margin:0;padding:0;width:10px !important;height:10px !important;vertical-align:middle;float:none;display:inline-block !important;background-image:url(http://127.0.0.1:10029/public/dap_validlink.png);background-repeat:no-repeat !important;}.daplv-WillNotVerify{margin:0;padding:0;width:10px !important;height:10px !important;vertical-align:middle;float:none;display:inline-block !important;background-image:url(http://127.0.0.1:10029/public/dap_premium.png);background-repeat:no-repeat !important;}.daplv-Pending{background:url(http://127.0.0.1:10029/public/dap_pendinglink.gif) no-repeat;margin:0;padding:0;width:10px !important;height:10px !important;vertical-align:middle;float:none;display:inline-block !important;}.daplv-Invalid{background:url(http://127.0.0.1:10029/public/dap_invalidlink.png) no-repeat;margin:0;padding:0;width:10px !important;height:10px !important;vertical-align:middle;float:none;display:inline-block !important;}.daplv-Unknown{background:url(http://127.0.0.1:10029/public/dap_unknown.gif) no-repeat;margin:0;padding:0;width:10px !important;height:10px !important;vertical-align:middle;float:none;display:inline-block !important;}.daplinkverifier .daplvinfo{background:url(http://127.0.0.1:10029/public/arrow.png) no-repeat left 0;margin:0;padding:0 0 0 12px;color:black !important;line-height:15px !important;font-family:arial !important;font-size:12px !important;font-weight:normal !important;display:none;visibility:hidden;position:absolute;z-index:100000;}.daplinkverifier .daplvinfo-rtl{background:url(http://127.0.0.1:10029/public/arrow-right.png) no-repeat right 0;margin:0;padding:0 12px 0 0;color:black !important;line-height:15px !important;font-family:arial;font-size:12px !important;font-weight:normal !important;display:none;visibility:hidden;position:absolute;z-index:100000;}.daplinkverifier .daplvinfo1{border-width:0 2px 2px;border-style:none solid solid;border-color:currentColor #56aed4 #56aed4;margin:-13px 0 0;padding:0 !important;position:relative;background-color:white !important;text-indent:0 !important;}table.daplv-data{margin:0 !important;padding:0;left:0;min-width:240px;}table.daplv-data tr{background-color:#fff !important;}table.daplv-data td{height:14px !important;line-height:15px;font-family:arial !important;font-size:12px !important;float:none !important;}table.daplv-data thead{margin:0;padding:0;background-color:#56aed4 !important;}table.daplv-data thead td{padding:5px;border:0 currentColor;color:black !important;background-color:#56aed4 !important;}table.daplv-data tbody td{margin:0;padding:5px 5px 0;border:0 currentColor;color:black !important;white-space:nowrap;}table.daplv-data tbody td strong{margin:0 !important;padding:0 !important;text-align:left !important;color:#000;font-size:12px !important;}.daplinkversettings{margin:0;padding:4px;font-size:12px !important;font-weight:normal !important;float:none !important;display:none;background-color:#e7e7e7;}.daplinkversettings a{color:#000 !important;font-size:12px !important;font-weight:normal !important;}.daplinkversettings table{width:220px;font-size:12px !important;font-weight:normal !important;margin:0 !important;padding:0 !important;}.daplinkversettings table tr{background-color:#e7e7e7 !important;}.daplinkversettings table td{margin:0;padding:3px;border:0 !important;}.daplinkversettings input{margin:10px 0 0;width:160px;color:black;font-size:11px;}.daplvwhatisthis{margin:0 !important;padding:0 !important;float:right !important;border:0 !important;}.daplvwhatisthis a{color:#fff !important;font-size:11px !important;font-weight:normal !important;text-decoration:underline !important;white-space:nowrap;background-color:#56aed4 !important;}.daplvwhatisthis a:hover{color:#fff !important;font-size:11px !important;font-weight:normal !important;text-decoration:underline !important;white-space:nowrap;}.daplvlogo{width:16px !important;height:15px !important;vertical-align:middle;margin:0 !important;}.daplvsubtitle{color:#8d7d82;}.daplvmoreLink{width:43px;text-align:right;margin-top:23px;float:right !important;}.daplvmoreLink a,.daplvmoreLink a:hover{color:black;font-size:11px;}.daplvDWL{margin:6px 0 6px 0 !important;width:146px;height:33px;}.daplvDWLAll{height:33px !important;margin-bottom:6px !important;float:right !important;margin-top:10px !important;}.daplv-clear{padding:0 !important;height:0 !important;line-height:0;clear:both;font-size:1px;background-color:transparent !important;}.cmenu{margin:0;padding:0;font-family:arial;font-size:12px;list-style-type:none;direction:ltr !important;background-color:#f0f0f0;}.cmenu img{border:0 currentColor;}.cmenu li{list-style:none !important;margin:0 !important;padding:0;}.cmenu a{padding:4px;border:1px solid #f0f0f0;color:black;text-decoration:none;display:block;cursor:pointer;background-color:#f0f0f0;}.cmenu a:hover{border:1px solid #aecff7;color:#000 !important;background-color:#e6edf6;}.dlvdivContext{padding:4px;border:1px solid #a0a0a0;display:none;position:absolute;background-color:#f0f0f0;}.daplinkverifier .exdaplvinfo{background:url(http://127.0.0.1:10029/public/ex-arrow.png) no-repeat left 0;margin:0;padding:0 0 0 21px;display:none;visibility:hidden;position:absolute;z-index:100000;}.daplinkverifier .exdaplvinfo-rtl{background:url(http://127.0.0.1:10029/public/ex-arrow-right.png) no-repeat right 0;margin:0;padding:0 21px 0 0;display:none;visibility:hidden;position:absolute;z-index:100000;}.daplinkverifier .exdaplvinfo1{background:url(http://127.0.0.1:10029/public/daplc-explanation-bg.jpg);margin:-21px 0 0;padding:0 !important;position:relative;}table.ex-daplv-data{margin:0;padding:0;left:0;width:465px !important;}table.ex-daplv-data thead{margin:0;padding:0;}table.ex-daplv-data thead td{height:61px !important;text-align:right !important;color:#fff !important;font-family:arial !important;font-size:32px !important;font-weight:bold;vertical-align:top !important;}table.ex-daplv-data thead td img{margin-top:10px !important;margin-right:10px !important;}table.ex-daplv-data tbody td{height:289px !important;color:#000 !important;line-height:21px !important;padding-top:7px !important;padding-left:177px !important;font-family:arial !important;font-size:16px !important;font-weight:bold !important;vertical-align:text-top !important;}table.ex-daplv-data tbody td div{padding-top:4px !important;padding-bottom:8px !important;}table.ex-daplv-data tbody td div a,table.ex-daplv-data tbody td div a:hover{color:#00597b !important;text-decoration:underline !important;}table.ex-daplv-data tbody td ul{list-style:none;margin:0 !important;padding:0 !important;}table.ex-daplv-data tbody td ul li.valid{background:url(http://127.0.0.1:10029/public/dap_validlink.png) no-repeat 25px 5px;margin:0;padding-top:0;padding-right:0;padding-bottom:3px !important;padding-left:42px;}table.ex-daplv-data tbody td ul li.pending{background:url(http://127.0.0.1:10029/public/dap_pendinglink.gif) no-repeat 25px 5px;margin:0;padding-top:0;padding-right:0;padding-bottom:3px !important;padding-left:42px;}table.ex-daplv-data tbody td ul li.invalid{background:url(http://127.0.0.1:10029/public/dap_invalidlink.png) no-repeat 25px 5px;margin:0;padding-top:0;padding-right:0;padding-bottom:3px !important;padding-left:42px;}table.daplv-data tbody td.dlvm-header{font-family:Arial !important;color:#000 !important;padding-bottom:5px !important;background-color:#e8f4fb !important;}table.daplv-data tbody td.dlvm-nav{text-align:left !important;padding:5px 0 0 5px !important;}.dlvmprev{margin-left:58px !important;cursor:pointer !important;font-size:16px !important;font-family:Arial !important;color:#000 !important;}.dlvmnext{cursor:pointer !important;font-size:16px !important;font-family:Arial !important;color:#000 !important;}.dlvmcur{margin:0 5px 0 5px !important;}.dlvfilename{font-weight:bold !important;}.dlvm-total{font-size:14px !important;font-weight:bold !important;}.dlvfloatleft{float:left !important;}</style></head>
+<body>
+    <!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->
+
+<div id="programiz-header" class="nav-down clearfix">  <!-- programiz-header Start (contains logo and main-nav)-->
+
+    <header class="header-wrapper">
+
+                    <div class="logo">
+                <a href="http://www.programiz.com/" title="Programiz Home">Programiz Logo</a>
+            </div>
+        
+            <div class="main-nav-wrapper clearfix">
+
+            <div>
+                
+                    <nav class="main-nav">
+
+                        <ul>
+                            <li><a href="http://www.programiz.com/" class="material-icons home-icon">home</a></li>
+                            <li class="current-nav-li"><a class="c-programming" href="http://www.programiz.com/c-programming">C Tutorial</a></li>
+                            <li><a class="cpp-programming" href="http://www.programiz.com/cpp-programming">C++</a></li>
+                            <li><a class="python-programming" href="http://www.programiz.com/python-programming">Python</a></li>
+                            <li><a class="r-programming" href="http://www.programiz.com/r-programming">R</a></li>
+                        </ul>
+
+<!--                        -->
+                    </nav>
+
+                
+                <a href="http://www.programiz.com/python-programming/inheritance" class="material-icons search-icon">search</a>
+            </div>
+
+                
+            </div>
+
+
+    </header>
+</div>
+
+<!-- programiz-header End -->
+<div id="search-area" class="clearfix">
+    <span class="material-icons">close</span>
+
+    <script>
+  (function() {
+    var cx = '013351199471627194829:-zsempw5vtc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="en" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none; background: url(&quot;http://www.google.com/cse/static/en/google_custom_search_watermark.gif&quot;) left center no-repeat rgb(255, 255, 255);"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div><input type="hidden" name="bgresponse" id="bgresponse"></td><td class="gsc-search-button"><input type="image" src="./Python Inheritance_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./Python Inheritance_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form><div class="gsc-results-wrapper-overlay"><div class="gsc-results-close-btn" tabindex="0"></div><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div class="gsc-modal-background-image" tabindex="0"></div></div></div></div>
+</div>
+
+
+<div id="main-wrapper" class="clearfix">   <!-- main-wrapper (programiz-left-sidebar, programiz-main-content, programiz-right-sidebar) Start -->
+
+
+    <div id="programiz-main-content"> <!-- programiz-main-content(content-top, main-content, content-bottom) Start -->
+
+        
+        
+        <section class="main-content">  <!-- main-content Start   -->
+
+                                        <h1>Python Inheritance</h1>
+             
+            
+        
+            
+                <div class="inside-content">
+                      <div class="region region-content-inside">
+    <div id="block-block-43" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Top { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Top { width: 468px; height: 60px; display: block;} }
+@media(min-width: 1170px) { .Programiz_Responsive_Top { width: 728px; height: 90px;} }
+</style>
+
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Programiz_Responsive_Top -->
+<ins class="adsbygoogle Programiz_Responsive_Top" data-ad-client="ca-pub-9007421361448641" data-ad-slot="1467818021"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+  </div>
+                </div>
+            
+              
+                      
+               
+            
+            
+            <div class="clearfix">
+     
+                <div class="share-bar-content">
+                      <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-40" class="node node-python clearfix" about="/python-programming/inheritance" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Python Inheritance" class="rdf-meta element-hidden"></span>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Inheritance is a powerful feature in object oriented programming. It refers to defining a new class with little or no modification to an existing class. The new class is called derived (or child) class and the one from which it inherits is called the base (or parent) class. Derived class inherits features from the base class, adding new features to it. This results into re-usability of code.</p><p><img alt="Python Inheritance Block Diagram" src="./Python Inheritance_files/inheritance-C++_programming.jpg" style="height:285px; width:273px"></p><h2>Python Inheritance Syntax</h2>
+<pre><samp>
+class DerivedClass(BaseClass):
+    body_of_derived_class
+</samp></pre>
+
+<h2>Example of Inheritance in Python</h2>
+<p></p><div id="adhuro-block-inject-1" class="adhuro-block-inject adhuro-block-inject-1"><div id="block-block-77" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Above_Image { width: 300px; height: 250px; display: block; margin: 15px auto; }
+@media(min-width: 550px) { .Above_Image { width: 336px; height: 280px; } }
+@media(min-width: 760px) { .Above_Image { width: 728px; height: 90px; } }
+@media(min-width: 900px) { .Above_Image { display: none; } }
+
+</style>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Above_Image -->
+<ins class="adsbygoogle Above_Image" data-ad-client="ca-pub-9007421361448641" data-ad-slot="8057468026" <="" ins="">
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </ins></div>
+</div>
+</div><p>To demonstrate the use of inheritance, let us take an example. A polygon is a closed figure with 3 or more sides. Say, we have a class called <code>Polygon</code> defined as follows.</p>
+
+<pre class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Polygon</span><span class="pun">:</span><span class="pln">
+    </span><span class="kwd">def</span><span class="pln"> __init__</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">,</span><span class="pln"> no_of_sides</span><span class="pun">):</span><span class="pln">
+        </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">n </span><span class="pun">=</span><span class="pln"> no_of_sides
+        </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">sides </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">0</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="pln">no_of_sides</span><span class="pun">)]</span><span class="pln">
+
+    </span><span class="kwd">def</span><span class="pln"> inputSides</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">):</span><span class="pln">
+        </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">sides </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="kwd">float</span><span class="pun">(</span><span class="pln">input</span><span class="pun">(</span><span class="str">"Enter side "</span><span class="pun">+</span><span class="pln">str</span><span class="pun">(</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">)+</span><span class="str">" : "</span><span class="pun">))</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">.</span><span class="pln">n</span><span class="pun">)]</span><span class="pln">
+
+    </span><span class="kwd">def</span><span class="pln"> dispSides</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">):</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">.</span><span class="pln">n</span><span class="pun">):</span><span class="pln">
+            </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Side"</span><span class="pun">,</span><span class="pln">i</span><span class="pun">+</span><span class="lit">1</span><span class="pun">,</span><span class="str">"is"</span><span class="pun">,</span><span class="kwd">self</span><span class="pun">.</span><span class="pln">sides</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])</span></code></pre>
+
+<p>This class has data attributes to store the number of sides, <var>n</var> and magnitude of each side as a list, <var>sides</var>. Method <code>inputSides()</code> takes in magnitude of each side and similarly, <code>dispSides()</code> will display these properly.</p>
+<p>A triangle is a polygon with 3 sides. So, we can created a class called <code>Triangle</code> which inherits from <code>Polygon</code>. This makes all the attributes available in class <code>Polygon</code> readily available in <code>Triangle</code>. We don't need to define them again (code re-usability). <code>Triangle</code> is defined as follows.</p>
+
+<pre class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Triangle</span><span class="pun">(</span><span class="typ">Polygon</span><span class="pun">):</span><span class="pln">
+    </span><span class="kwd">def</span><span class="pln"> __init__</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">):</span><span class="pln">
+        </span><span class="typ">Polygon</span><span class="pun">.</span><span class="pln">__init__</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">,</span><span class="lit">3</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="kwd">def</span><span class="pln"> findArea</span><span class="pun">(</span><span class="kwd">self</span><span class="pun">):</span><span class="pln">
+        a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">,</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">sides
+        </span><span class="com"># calculate the semi-perimeter</span><span class="pln">
+        s </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+        area </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">s</span><span class="pun">*(</span><span class="pln">s</span><span class="pun">-</span><span class="pln">a</span><span class="pun">)*(</span><span class="pln">s</span><span class="pun">-</span><span class="pln">b</span><span class="pun">)*(</span><span class="pln">s</span><span class="pun">-</span><span class="pln">c</span><span class="pun">))</span><span class="pln"> </span><span class="pun">**</span><span class="pln"> </span><span class="lit">0.5</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pun">(</span><span class="str">'The area of the triangle is %0.2f'</span><span class="pln"> </span><span class="pun">%</span><span class="pln">area</span><span class="pun">)</span></code></pre>
+
+<p></p><div id="block-inject-1" class="block-inject block-inject-1"><div id="block-block-76" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Middle_Content { width: 300px; height: 250px; margin: 15px auto; display: block; }
+@media(min-width: 550px) { .Programiz_Responsive_Middle_Content { width: 336px; height: 280px; } }
+@media(min-width: 760px) { .Programiz_Responsive_Middle_Content { width: 728px; height: 90px; } }
+@media(min-width: 900px) { .Programiz_Responsive_Middle_Content { display: none; } }
+</style>
+
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Programiz_Responsive_Middle_Content -->
+<ins class="adsbygoogle Programiz_Responsive_Middle_Content" data-ad-client="ca-pub-9007421361448641" data-ad-slot="8314930428" <="" ins="">
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </ins></div>
+</div>
+</div><div class="clearfix"></div><p>However, class <code>Triangle</code> has a new method <code>findArea()</code> to find and print the area of the triangle. Here is a sample run.</p>
+
+<pre class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Triangle</span><span class="pun">()</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">inputSides</span><span class="pun">()</span><span class="pln">
+</span><span class="typ">Enter</span><span class="pln"> side </span><span class="lit">1</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="typ">Enter</span><span class="pln"> side </span><span class="lit">2</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln">
+</span><span class="typ">Enter</span><span class="pln"> side </span><span class="lit">3</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">dispSides</span><span class="pun">()</span><span class="pln">
+</span><span class="typ">Side</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="lit">3.0</span><span class="pln">
+</span><span class="typ">Side</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="lit">5.0</span><span class="pln">
+</span><span class="typ">Side</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="lit">4.0</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> t</span><span class="pun">.</span><span class="pln">findArea</span><span class="pun">()</span><span class="pln">
+</span><span class="typ">The</span><span class="pln"> area of the triangle </span><span class="kwd">is</span><span class="pln"> </span><span class="lit">6.00</span></code></pre>
+
+<p>We can see that, even though we did not define methods like <code>inputSides()</code> or <code>dispSides()</code> for class <code>Triangle</code>, we were able to use them. If an attribute is not found in the class, search continues to the base class. This repeats recursively, if the base class is itself derived from other classes.</p>
+<h2>Method Overriding in Python</h2>
+<p>In the above example, notice that <code>__init__()</code> method was defined in both classes, <code>Triangle</code> as well <code>Polygon</code>. When this happens, the method in the derived class overrides that in the base class. This is to say, <code>__init__()</code> in <code>Triangle</code> gets preference over the same in <code>Polygon</code>. Generally when overriding a base method, we tend to extend the definition rather than simply replace it. The same is being done by calling the method in base class from the one in derived class (calling <code>Polygon.__init__()</code> from <code>__init__()</code> in <code>Triangle</code>). A better option would be to use the built-in function <code>super()</code>. So, <code>super().__init(3)</code> is equivalent to <code>Polygon.__init__(self,3)</code> and is preferred. You can learn more about the <a href="http://rhettinger.wordpress.com/2011/05/26/super-considered-super/" title="Python super() function">super() function in Python</a>.</p>
+<p>Two built-in functions <code>isinstance()</code> and <code>issubclass()</code> are used to check inheritances. Function <code>isinstance()</code> returns <code>True</code> if the object is an instance of the class or other classes derived from it. Each and every class in Python inherits from the base class <code>object</code>.</p>
+
+<pre class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> isinstance</span><span class="pun">(</span><span class="pln">t</span><span class="pun">,</span><span class="typ">Triangle</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">True</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> isinstance</span><span class="pun">(</span><span class="pln">t</span><span class="pun">,</span><span class="typ">Polygon</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">True</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> isinstance</span><span class="pun">(</span><span class="pln">t</span><span class="pun">,</span><span class="kwd">int</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">False</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> isinstance</span><span class="pun">(</span><span class="pln">t</span><span class="pun">,</span><span class="kwd">object</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">True</span></code></pre>
+
+<p>Similarly, <code>issubclass()</code> is used to check for class inheritance.</p>
+
+<pre class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> issubclass</span><span class="pun">(</span><span class="typ">Polygon</span><span class="pun">,</span><span class="typ">Triangle</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">False</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> issubclass</span><span class="pun">(</span><span class="typ">Triangle</span><span class="pun">,</span><span class="typ">Polygon</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">True</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> issubclass</span><span class="pun">(</span><span class="kwd">bool</span><span class="pun">,</span><span class="kwd">int</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">True</span></code></pre>
+</div></div></div>  </div>
+
+  
+  
+</div>  </div>
+</div>
+  </div>
+                                            <div class="content-bottom"> 
+                              <div class="region region-content-bottom">
+    <div id="block-block-47" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Bottom { display: block; width: 300px; height: 250px; margin: 15px auto; }
+@media (max-width: 550px) { .Programiz_Responsive_Bottom { width: 336px; height: 280px } }
+@media(min-width: 760px) { .Programiz_Responsive_Bottom { width: 728px; height: 90px; } }
+@media (min-width: 886px) { .Programiz_Responsive_Bottom { display: none; } }
+</style>
+
+<ins class="adsbygoogle Programiz_Responsive_Bottom" data-ad-client="ca-pub-9007421361448641" data-ad-slot="6838197222"></ins>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+<div id="block-block-9" class="block block-block">
+
+    
+  <div class="content">
+    
+<div class="chapter cf">
+	  <div class="prev"><a href="http://www.programiz.com/python-programming/class" title="Python Objects and Class"> ◄ Previous Page</a></div>
+  <div class="next"><a href="http://www.programiz.com/python-programming/multiple-inheritance" title="Python Multiple Inheritance">Next Page ► </a></div>
+</div>
+  </div>
+</div>
+<div id="block-block-68" class="block block-block">
+
+    
+  <div class="content">
+    <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Matched Content -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9007421361448641" data-ad-slot="2335665225" data-ad-format="autorelaxed"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+  </div>
+                        </div>
+                                </div>
+            </div>
+               
+
+        </section> <!-- main-content End -->
+    </div> <!-- programiz-main-content End -->
+
+            <aside id="programiz-left-sidebar"> <!-- programiz-left-sidebar Start -->
+              <div class="region region-sidebar-left">
+    <div id="block-block-75" class="block block-block">
+
+    
+  <div class="content">
+    <script type="text/javascript">
+    var w = window.innerWidth;
+     if (w > 900)
+     {
+     	document.write('\x3Cscript type="text/javascript">e9 = new Object();e9.size = "300x250";e9.noAd = 1;\x3C/script>\x3Cscript type="text/javascript" src="http://tags.expo9.exponential.com/tags/Programizcom/ROS/tags.js">\x3C/script>');
+     }
+</script><script type="text/javascript">e9 = new Object();e9.size = "300x250";e9.noAd = 1;</script><script type="text/javascript" src="http://tags.expo9.exponential.com/tags/Programizcom/ROS/tags.js"></script>
+
+  </div>
+</div>
+<div id="block-block-53" class="block block-block">
+
+    
+  <div class="content">
+    <!-- BuySellAds Zone Code -->
+<div id="bsap_1305034" class="bsarocks bsap_f45e8a7dfcbc87e2805451dac2be09c1"></div>
+<!-- End BuySellAds Zone Code -->  </div>
+</div>
+<div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <nav class="header-list-menu">
+	<h2>Python Tutorial</h2>
+	<ul class="topmenu">
+		<li>
+			<h3>Python Introduction<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/keywords-identifier">Keywords and Identifier</a></li>
+				<li><a href="http://www.programiz.com/python-programming/statement-indentation-comments">Statements&nbsp;&amp; Comments</a></li>
+				<li><a href="http://www.programiz.com/python-programming/variables-datatypes">Python &nbsp;Datatypes</a></li>
+				<li><a href="http://www.programiz.com/python-programming/input-output-import">Python I/O and Import</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operators">Python Operators</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Flow Control<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/if-elif-else" title="Python if, else and elif">Python if...else</a></li>
+				<li><a href="http://www.programiz.com/python-programming/for-loop" title="Python for Loop">Python for Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/while-loop" title="Python while Loop">Python while Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/break-continue" title="Python break and continue">Python break and continue</a></li>
+				<li><a href="http://www.programiz.com/python-programming/pass-statement" title="Python Pass Statement">Python Pass</a></li>
+				<li><a href="http://www.programiz.com/python-programming/looping-technique" title="Looping Technique">Looping&nbsp;Technique</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Functions<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/function" title="Functions in Python Programming">Python Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/function-argument" title="Function Argument in Python">Function Argument</a></li>
+				<li><a href="http://www.programiz.com/python-programming/recursion" title="Recursive Function in Python">Python Recursion</a></li>
+				<li><a href="http://www.programiz.com/python-programming/anonymous-function" title="Anonymous Function in Python">Anonymous&nbsp;Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/modules" title="Modules in Python Programming">Python Modules</a></li>
+				<li><a href="http://www.programiz.com/python-programming/package" title="Package in Python Programming">Python Package</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Native Datatypes<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/numbers" title="Numbers in Python Programming">Python Numbers</a></li>
+				<li><a href="http://www.programiz.com/python-programming/list" title="List in Python Programming">Python List</a></li>
+				<li><a href="http://www.programiz.com/python-programming/tuple" title="Tuple in Python Programming">Python Tuple</a></li>
+				<li><a href="http://www.programiz.com/python-programming/string" title="String in Python Programming">Python String</a></li>
+				<li><a href="http://www.programiz.com/python-programming/set" title="Set in Python Programming">Python Set</a></li>
+				<li><a href="http://www.programiz.com/python-programming/dictionary" title="Dictionary in Python Programming">Python Dictionary</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Files<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/file-operation">Python File Operation</a></li>
+				<li><a href="http://www.programiz.com/python-programming/directory">Python Directory</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exceptions">Python Exception</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exception-handling">Exception Handling</a></li>
+				<li><a href="http://www.programiz.com/python-programming/user-defined-exception">User-defined Exception</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Object &amp; Class<span class="indicator_show"></span></h3>
+			<ul class="submenu visuallynothidden">
+				<li><a href="http://www.programiz.com/python-programming/namespace" title="Python Programming Namespace">Python Namespace</a></li>
+				<li><a href="http://www.programiz.com/python-programming/class" title="Python Programming Class">Python Class</a></li>
+				<li class="currentPage"><a href="http://www.programiz.com/python-programming/inheritance" title="Python Programming Inheritance">Python Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/multiple-inheritance" title="Multiple Inheritance in Python">Multiple Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operator-overloading" title="Python Operator Overloading">Operator Overloading</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Additional Topics<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/iterator">Python Iterator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/generator">Python Generator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/closure">Python Closure</a></li>
+				<li><a href="http://www.programiz.com/python-programming/decorator" title="Decorators in Python">Python Decorators</a></li>
+				<li><a href="http://www.programiz.com/python-programming/property" title="Python programming property">Python Property</a></li>
+				<li><a href="http://www.programiz.com/python-programming/examples" title="Source code of Python">Python Examples</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+  </div>
+</div>
+<div id="block-block-45" class="block block-block">
+
+    
+  <div class="content">
+    <br>
+<style type="text/css">
+.Programiz_Responsive_Left1 { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Left1 { display: block; }} 
+</style>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Programiz Responsive Left1 -->
+<ins class="adsbygoogle Programiz_Responsive_Left1" data-ad-client="ca-pub-9007421361448641" data-ad-slot="2944551229" data-ad-format="rectangle"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>  </div>
+</div>
+<div id="block-block-29" class="block block-block">
+
+    
+  <div class="content">
+    <div class="subscribe ml-subscribe-form ml-subscribe-form-1819301" id="mlb2-1819301">
+	<h3>Receive the latest tutorial to improve your programming skills.</h3>
+	<div class="ml-vertical-align-center">
+		<div class="subscribe-form ml-block-success" style="display:none">
+			<div class="form-section">
+				<p>You have successfully subscribed to Python newsletter.</p>
+			</div>
+		</div>
+		<form action="http://app.mailerlite.com/webforms/submit/s8v2x9" class="ml-block-form" data-code="s8v2x9" method="POST" target="_blank"><input class="form-control" name="fields[email]" placeholder="Enter Email Address*" type="text" value=""> <input name="ml-submit" type="hidden" value="1"><button class="primary" type="submit">Join</button></form>
+		<script>
+            function ml_webform_success_1819301() {
+                jQuery('.ml-subscribe-form-1819301 .ml-block-success').show();
+                jQuery('.ml-subscribe-form-1819301 .ml-block-form').hide();
+            };
+        </script></div>
+</div>
+<script type="text/javascript" src="./Python Inheritance_files/webforms.js.download"></script>  </div>
+</div>
+<div id="block-block-46" class="block block-block">
+
+    
+  <div class="content">
+    <br>
+<style type="text/css">
+.Programiz_Responsive_Left2 { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Left2 { display: block; width: 300px; height: 600px; }} 
+</style>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Programiz Responsive Left2 -->
+<ins class="adsbygoogle Programiz_Responsive_Left2" data-ad-client="ca-pub-9007421361448641" data-ad-slot="4421284423" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>  </div>
+</div>
+  </div>
+        </aside>  <!-- programiz-left-sidebar End -->
+        
+</div> <!-- main-wrapper End -->
+
+
+<footer id="footer">
+    <div class="footer-misc clearfix">
+            </div>
+</footer>
+
+<div class="copyright">
+    Copyright © by Programiz | All rights reserved | <a href="http://www.programiz.com/privacy-policy">Privacy Policy</a>
+</div>
+<script async="" type="text/javascript" src="http://cdn.fancybar.net/ac/fancybar.js?zoneid=1502&amp;serve=C6ADVKE&amp;placement=programiz" id="_fancybar_js"></script>
+
+  <script type="text/javascript" src="./Python Inheritance_files/js_wMq06n34El81cPtKvKVuAehyOEwepE71d1W2gGcEjDE.js.download"></script>
+<script type="text/javascript" src="./Python Inheritance_files/js_ZPMVUwauT3CzfUSIYk-Kc3nwhp80i90VcKjYuHm5owQ.js.download"></script>
+
+<div id="sidr-left" class="sidr left"><div class="sidr-inner">
+	<h2>Python Tutorial</h2>
+	<ul class="sidr-class-topmenu">
+		<li>
+			<h3>Python Introduction<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/keywords-identifier">Keywords and Identifier</a></li>
+				<li><a href="http://www.programiz.com/python-programming/statement-indentation-comments">Statements&nbsp;&amp; Comments</a></li>
+				<li><a href="http://www.programiz.com/python-programming/variables-datatypes">Python &nbsp;Datatypes</a></li>
+				<li><a href="http://www.programiz.com/python-programming/input-output-import">Python I/O and Import</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operators">Python Operators</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Flow Control<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/if-elif-else" title="Python if, else and elif">Python if...else</a></li>
+				<li><a href="http://www.programiz.com/python-programming/for-loop" title="Python for Loop">Python for Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/while-loop" title="Python while Loop">Python while Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/break-continue" title="Python break and continue">Python break and continue</a></li>
+				<li><a href="http://www.programiz.com/python-programming/pass-statement" title="Python Pass Statement">Python Pass</a></li>
+				<li><a href="http://www.programiz.com/python-programming/looping-technique" title="Looping Technique">Looping&nbsp;Technique</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Functions<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/function" title="Functions in Python Programming">Python Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/function-argument" title="Function Argument in Python">Function Argument</a></li>
+				<li><a href="http://www.programiz.com/python-programming/recursion" title="Recursive Function in Python">Python Recursion</a></li>
+				<li><a href="http://www.programiz.com/python-programming/anonymous-function" title="Anonymous Function in Python">Anonymous&nbsp;Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/modules" title="Modules in Python Programming">Python Modules</a></li>
+				<li><a href="http://www.programiz.com/python-programming/package" title="Package in Python Programming">Python Package</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Native Datatypes<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/numbers" title="Numbers in Python Programming">Python Numbers</a></li>
+				<li><a href="http://www.programiz.com/python-programming/list" title="List in Python Programming">Python List</a></li>
+				<li><a href="http://www.programiz.com/python-programming/tuple" title="Tuple in Python Programming">Python Tuple</a></li>
+				<li><a href="http://www.programiz.com/python-programming/string" title="String in Python Programming">Python String</a></li>
+				<li><a href="http://www.programiz.com/python-programming/set" title="Set in Python Programming">Python Set</a></li>
+				<li><a href="http://www.programiz.com/python-programming/dictionary" title="Dictionary in Python Programming">Python Dictionary</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Files<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/file-operation">Python File Operation</a></li>
+				<li><a href="http://www.programiz.com/python-programming/directory">Python Directory</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exceptions">Python Exception</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exception-handling">Exception Handling</a></li>
+				<li><a href="http://www.programiz.com/python-programming/user-defined-exception">User-defined Exception</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Object &amp; Class<span class="sidr-class-indicator_show"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallynothidden">
+				<li><a href="http://www.programiz.com/python-programming/namespace" title="Python Programming Namespace">Python Namespace</a></li>
+				<li><a href="http://www.programiz.com/python-programming/class" title="Python Programming Class">Python Class</a></li>
+				<li class="sidr-class-currentPage"><a href="http://www.programiz.com/python-programming/inheritance" title="Python Programming Inheritance">Python Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/multiple-inheritance" title="Multiple Inheritance in Python">Multiple Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operator-overloading" title="Python Operator Overloading">Operator Overloading</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Additional Topics<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/iterator">Python Iterator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/generator">Python Generator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/closure">Python Closure</a></li>
+				<li><a href="http://www.programiz.com/python-programming/decorator" title="Decorators in Python">Python Decorators</a></li>
+				<li><a href="http://www.programiz.com/python-programming/property" title="Python programming property">Python Property</a></li>
+				<li><a href="http://www.programiz.com/python-programming/examples" title="Source code of Python">Python Examples</a></li>
+			</ul>
+		</li>
+	</ul>
+</div></div><div>
+
+	
+		<title></title>
+		
+		<style type="text/css">
+			
+			/* DAP Download BAR */
+			div#DDB_DAPBar {width: 100%;height: 0px;border-top: 1px solid #d6d6d6;background-color: #d6d6d6;position: absolute;left: 0px;bottom: 0;z-index: 250000;text-align: left; color: #000000; visibility: hidden; font-family: 'Segoe UI'; direction: ltr; line-height: 15px;}
+			
+			div#DDB_DAPBar_control{position: absolute; right: 13px; top: 0px; margin-top: 14px;}
+			div#DDB_DAPBar_close{float:left; position: relative;z-index: 250001;width: 10px; height: 10px; margin: 1px 0px 0px 19px;}
+			div#DDB_DAPBar_close:hover{background-position: bottom !important;}
+			div#DDB_DAPBar .DDB_dwlbtnwrap{height: 50px;width: 257px; font-size: 15px; position: relative; float: left; margin: 16px 0px 0px 50px;}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .dwlbtn{text-align: center; height: 50px;text-shadow: 0px -1px 0px #003716; font-weight: bold;background-color: #00a600;
+				background: -moz-linear-gradient(#00d004, #005600); 
+				background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #00d004),color-stop(1, #005600));
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00d004', endColorstr='#005600',GradientType=0 );border: 1px solid #106b18;
+				background-image: -o-linear-gradient(rgb(0,208,4),rgb(0,86,0));
+			}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .dwlbtn a{text-decoration: none; color: #ffffff !important;display: block; padding-top: 14px; height: 36px; font-size: 22px;}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .mask{overflow: hidden;}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .roundedCorners{border-radius: 6px;-moz-border-radius: 6px;-webkit-border-radius: 6px;}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .dwlbtn:hover {background-color: #00d004;text-shadow: 0px -1px 0px #003716;border: 1px solid #106b18;
+				background: -moz-linear-gradient(#005600, #00d004);
+				background: -webkit-gradient(linear,left top,left bottom,color-stop(0, #005600),color-stop(1, #00d004));
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005600', endColorstr='#00d004',GradientType=0 );
+				background-image: -o-linear-gradient(rgb(0,86,0),rgb(0,208,4));
+			}
+			div#DDB_DAPBar .DDB_dwlbtnwrap .gradient{filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005600', endColorstr='#00d004',GradientType=0 ); /* IE6-9*/ }
+			div#DDB_DAPBar .clearall{ clear: both; line-height: 0px; height: 0px; font-size: 0px;}
+			div#DDB_DAPBar .ddbinst{font-size: 18px; padding-top: 10px; float: left; width: 640px;}
+			div#DDB_DAPBar .ddbinst a{text-decoration: none; color :#000000;}
+			div#DDB_DAPBar .ddb_dapinstall{float: left; padding-top: 10px;}
+			div#DDB_DAPBar .ddbInstallWrap{line-height: 20px; margin: 0px auto; width: 950px;}
+			div#DDB_DAPBar .ddbInstallWrap img{float: left; margin-right: 10px; border: 0px;width: 65px; height: 65px;}
+			
+			#DDB_DAPBarLogo {background: url(data:image/png;base64,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) no-repeat 0 0;float: left;width: 65px; height: 65px;}
+		</style>
+	
+	
+		<div id="DDB_DAPBar">
+			<div id="DDB_DAPBar_list"></div>
+			<div id="DDB_DAPBar_control"></div>
+		</div>
+		<!--<div id="DDB_DAPBar" style="visibility: visible; height: 82px;">
+			<div id="DDB_DAPBar_list"><div class="ddbInstallWrap"><div class="ddbinst"><div class="ddb_dapinstall"><strong>DAP Extenstion:</strong><br>To accelerate your downloads, install Download Accelerator Plus (DAP)</div><div class="clearall"></div></div><div class="DDB_dwlbtnwrap" title="Download Accelerator Plus (DAP) Free - Download button"><div class="mask roundedCorners"><div class="roundedCorners dwlbtn"><a href="http://download.speedbit.com/mag/dap10_gws_setup.exe">DOWNLOAD DAP</a></div></div></div><div class="clearall"></div></div></div>
+			<div id="DDB_DAPBar_control"><img src="http://www.speedbit.com/img/dapchrome/ddb-close.png" style="width: 65px; height: 65px;" alt="Close" /></div>
+		</div>-->
+	
+</div><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 2px; display: none; top: 3px; left: -1px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>

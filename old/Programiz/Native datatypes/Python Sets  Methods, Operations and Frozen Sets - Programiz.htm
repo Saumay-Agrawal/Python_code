@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html class="no-js js" lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="http://www.programiz.com/sites/tutorial2program/files/programiz-favicon_2.png" type="image/png">
+<meta name="description" content="Set is an unordered collection of items. Every element is unique (no duplicates) and must be immutable. However, the set itself is mutable (we can add or remove items). Sets can be used to perform mathematical set operations like union, intersection, symmetric difference etc.">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<link rel="canonical" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/set_004.htm">
+<link rel="shortlink" href="http://www.programiz.com/node/79">
+<meta name="google-site-verification" content="17JZPeRuYVi-HGRJIG06Wx4uVrQSGPSGk7RLbZ7LaTA">
+  <title>Python Sets: Methods, Operations and Frozen Sets - Programiz</title>
+
+  <link href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/icon.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all">
+<link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_VWGhZkkR4B4tMJA7PC_wov8dAxaI-MS03BCM3K8jjJA.css" media="screen">
+<link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_hYCLW089C9S9sP3ZYkuG6R-Q5ZHbEhblZBFjwZ_bE_I.css" media="all">
+<link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_MnXiytJtb186Ydycnpwpw34cuUsHaKc80ey5LiQXhSY.css" media="all">
+<link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_Erj45jU7J38oWwmmh59TzsLd1-byucY9QH8VTsE-UYk.css" media="all">
+<link type="text/css" rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/css_5aQvY9eDN5XIiayMtb_05FejVu1px73z0dS0wFjNJKo.css" media="all">
+  <script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/async-ads.js" async=""></script><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/ca-pub-9007421361448641.js"></script><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/cse.js" async="" type="text/javascript"></script><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/analytics.js" async=""></script><script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/jquery.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_3TykeRWpejhD4-J3vdlaNXdULg9xhOZhbsppK0o2bUs.js"></script>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_Xdog1yvbsHUl33-wo9ctRnQMgE_3uBBG15y3yJm_2eY.js"></script>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_gPqjYq7fqdMzw8-29XWQIVoDSWTmZCGy9OqaHppNxuQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-36675496-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_9XX6NA6mOc4Dqzi_4DGsNuZCjSkGydhm0FahzmrzxI4.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"ultimate","theme_token":"NDUppVCd0sRyXyhLgXnBl88IXlAMHpSPd4uLYmrmvc8","js":{"sites\/all\/libraries\/prettify\/prettify.js":1,"sites\/all\/modules\/prettify\/prettify.loader.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/codefilter\/codefilter.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"1":1,"sites\/all\/themes\/Ultimate\/sidr-package-1.2.1\/jquery.sidr.min.js":1,"sites\/all\/themes\/Ultimate\/js\/plugins.js":1,"sites\/all\/themes\/Ultimate\/js\/main.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/codefilter\/codefilter.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/Ultimate\/css\/normalize.css":1,"sites\/all\/themes\/Ultimate\/css\/main.css":1,"sites\/all\/themes\/Ultimate\/sidr-package-1.2.1\/stylesheets\/jquery.sidr.dark.css":1,"sites\/all\/modules\/prettify\/styles\/stackoverflow.css":1}},"prettify":{"linenums":false,"match":"","nocode":"nocode","custom":[],"markup":{"precode":true,"code":false,"pre":false}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"}});
+//--><!]]>
+</script>
+<script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/bsa.js" async="" type="text/javascript"></script><script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/jsapi"></script><link rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/defaulten.css" type="text/css"><link rel="stylesheet" href="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/default.css" type="text/css"><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/defaulten.js" type="text/javascript"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Verdana, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Verdana, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #EFEFEF;
+background-color: #2C394B;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #E9E9E9;
+background-color: #E9E9E9;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #FF9900;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #FF9900;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #0000CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #0000CC;
+}
+.gsc-cursor-page {
+color: #0000CC;
+}
+a.gsc-trailing-more-results:link {
+color: #0000CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #000000;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #008000;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #E9E9E9;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #FF9900;
+background-color: #FFFFFF;
+color: #0000CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #336699;
+background-color: #FFFFFF;
+}
+.gsc-completion-title {
+color: #0000CC;
+}
+.gsc-completion-snippet {
+color: #000000;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #0000CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #0000CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #000000;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #008000;
+}</style><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/jquery_002.js" type="text/javascript"></script><script async="async" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/s_f45e8a7dfcbc87e2805451dac2be09c1.js" id="_bsap_js_f45e8a7dfcbc87e2805451dac2be09c1" type="text/javascript"></script><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-moz-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><script src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/C6ADVKE.json" type="text/javascript" id="_fbn_projs"></script><script id="_bsap_premium_pro" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/pro.js" type="text/javascript"></script><script async="async" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/a" id="_bsaPRO_js" type="text/javascript"></script></head>
+<body>
+    <!-- BuySellAds Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds Ad Code -->
+
+<div id="programiz-header" class="nav-down clearfix">  <!-- programiz-header Start (contains logo and main-nav)-->
+
+    <header class="header-wrapper">
+
+                    <div class="logo">
+                <a href="http://www.programiz.com/" title="Programiz Home">Programiz Logo</a>
+            </div>
+        
+            <div class="main-nav-wrapper clearfix">
+
+            <div>
+                
+                    <nav class="main-nav">
+
+                        <ul>
+                            <li><a href="http://www.programiz.com/" class="material-icons home-icon">home</a></li>
+                            <li class="current-nav-li"><a class="c-programming" href="http://www.programiz.com/c-programming">C Tutorial</a></li>
+                            <li><a class="cpp-programming" href="http://www.programiz.com/cpp-programming">C++</a></li>
+                            <li><a class="python-programming" href="http://www.programiz.com/python-programming">Python</a></li>
+                            <li><a class="r-programming" href="http://www.programiz.com/r-programming">R</a></li>
+                        </ul>
+
+<!--                        -->
+                    </nav>
+
+                
+                <a href="" class="material-icons search-icon">search</a>
+            </div>
+
+                
+            </div>
+
+
+    </header>
+</div>
+
+<!-- programiz-header End -->
+<div id="search-area" class="clearfix">
+    <span class="material-icons">close</span>
+
+    <script>
+  (function() {
+    var cx = '013351199471627194829:-zsempw5vtc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div dir="ltr" class="gsc-control-wrapper-cse"><form accept-charset="utf-8" class="gsc-search-box gsc-search-box-tools"><table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-input"><div id="gsc-iw-id1" class="gsc-input-box"><table class="gstl_50 " id="gs_id50" style="width: 100%; padding: 0px;" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsib_a" id="gs_tti50"><input spellcheck="false" dir="ltr" x-webkit-grammar="builtin:search" x-webkit-speech="" id="gsc-i-id1" style="width: 100%; padding: 0px; border: medium none; margin: 0px; height: auto; outline: medium none; background: rgb(255, 255, 255) url(&quot;http://www.google.com/cse/static/en/google_custom_search_watermark.gif&quot;) no-repeat scroll left center;" title="search" name="search" class="gsc-input" size="10" autocomplete="off" lang="en" type="text"></td><td class="gsib_b"><div dir="ltr" id="gs_st50" class="gsst_b"><a style="display: none;" href="javascript:void(0)" class="gsst_a"><span id="gs_cb50" class="gscb_a">×</span></a></div></td></tr></tbody></table></div><input id="bgresponse" name="bgresponse" type="hidden"></td><td class="gsc-search-button"><input title="search" class="gsc-search-button gsc-search-button-v2" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/search_box_icon.png" type="image"></td><td class="gsc-clear-button"><div title="clear results" class="gsc-clear-button">&nbsp;</div></td></tr></tbody></table><table class="gsc-branding" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img class="gsc-branding-img" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/small-logo.png"></td></tr></tbody></table></form><div class="gsc-results-wrapper-overlay"><div tabindex="0" class="gsc-results-close-btn"></div><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div><div class="gsc-tabsAreaInvisible"></div><div class="gsc-above-wrapper-area-invisible"><table class="gsc-above-wrapper-area-container" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table class="gsc-resultsHeader" cellpadding="0" cellspacing="0"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div title="show one result" class="gsc-result-selector gsc-one-result">&nbsp;</div><div title="show more results" class="gsc-result-selector gsc-more-results">&nbsp;</div><div title="show all results" class="gsc-result-selector gsc-all-results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div tabindex="0" class="gsc-modal-background-image"></div></div></div></div>
+</div>
+
+
+<div id="main-wrapper" class="clearfix">   <!-- main-wrapper (programiz-left-sidebar, programiz-main-content, programiz-right-sidebar) Start -->
+
+
+    <div id="programiz-main-content"> <!-- programiz-main-content(content-top, main-content, content-bottom) Start -->
+
+        
+        
+        <section class="main-content">  <!-- main-content Start   -->
+
+                                        <h1>Python Sets</h1>
+             
+            
+        
+            
+                <div class="inside-content">
+                      <div class="region region-content-inside">
+    <div id="block-block-43" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Top { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Top { width: 468px; height: 60px; display: block;} }
+@media(min-width: 1170px) { .Programiz_Responsive_Top { width: 728px; height: 90px;} }
+</style>
+
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Programiz_Responsive_Top -->
+<ins style="width: 728px; height: 90px;" data-adsbygoogle-status="done" class="adsbygoogle Programiz_Responsive_Top" data-ad-client="ca-pub-9007421361448641" data-ad-slot="1467818021"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="90" width="728"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+  </div>
+                </div>
+            
+              
+                      
+               
+            
+            
+            <div class="clearfix">
+     
+                <div class="share-bar-content">
+                      <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-79" class="node node-python clearfix" about="/python-programming/set" typeof="sioc:Item foaf:Document">
+
+  
+      <span property="dc:title" content="Python Sets" class="rdf-meta element-hidden"></span>
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Set
+ is an unordered collection of items. Every element is unique (no 
+duplicates) and must be immutable. However, the set itself is mutable 
+(we can add or remove items). Sets can be used to perform mathematical 
+set operations like union, intersection, symmetric difference etc.</p>
+<h2>Creating a Set in Python</h2>
+<p></p><div id="adhuro-block-inject-1" class="adhuro-block-inject adhuro-block-inject-1"><div id="block-block-77" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Above_Image { width: 300px; height: 250px; display: block; margin: 15px auto; }
+@media(min-width: 550px) { .Above_Image { width: 336px; height: 280px; } }
+@media(min-width: 760px) { .Above_Image { width: 728px; height: 90px; } }
+@media(min-width: 900px) { .Above_Image { display: none; } }
+
+</style>
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Above_Image -->
+<ins style="width: 728px; height: 90px;" data-adsbygoogle-status="done" class="adsbygoogle Above_Image" data-ad-client="ca-pub-9007421361448641" data-ad-slot="8057468026" <="" ins="">
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  <!--No ad requested because of display:none on the adsbygoogle tag--></ins></div>
+</div>
+</div><p>A set is created by placing all the items (elements) inside 
+curly braces {}, separated by comma or by using the built-in function <code>set()</code>.
+ It can have any number of items and they may be of different types 
+(integer, float, tuple, string etc.). But a set cannot have a mutable 
+element, like list, set or dictionary, as its element.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="com"># set of integers</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="com"># set of mixed datatypes</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1.0</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">)}</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="com"># set donot have duplicates</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">2</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="com"># set cannot have mutable items</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">]}</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> unhashable type</span><span class="pun">:</span><span class="pln"> </span><span class="str">'list'</span><span class="pln">
+
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="com"># but we can make set from a list</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="kwd">set</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">2</span><span class="pun">])</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">}</span></code></pre>
+<p>Creating an empty set is a bit tricky. Empty curly braces {} will 
+make an empty dictionary in Python. To make a set without any elements 
+we use the <code>set()</code> function without any argument.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> type</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="kwd">class</span><span class="pln"> </span><span class="str">'dict'</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">set</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> type</span><span class="pun">(</span><span class="pln">a</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="kwd">class</span><span class="pln"> </span><span class="str">'set'</span><span class="pun">&gt;</span></code></pre>
+<h2>Changing a Set in Python</h2>
+<p>Sets are mutable. But since they are unordered, indexing have no 
+meaning. We cannot access or change an element of set using indexing or 
+slicing. Set does not support it. We can add single elements using the 
+method <code>add()</code>. Multiple elements can be added using <code>update()</code> method. The <code>update()</code> method can take tuples, lists, strings or other sets as its argument. In all cases, duplicates are avoided.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">3</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">TypeError</span><span class="pun">:</span><span class="pln"> </span><span class="str">'set'</span><span class="pln"> </span><span class="kwd">object</span><span class="pln"> does </span><span class="kwd">not</span><span class="pln"> support indexing
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">update</span><span class="pun">([</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">])</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">update</span><span class="pun">([</span><span class="lit">4</span><span class="pun">,</span><span class="lit">5</span><span class="pun">],</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">6</span><span class="pun">,</span><span class="lit">8</span><span class="pun">})</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span></code></pre>
+<h2>Removing Elements from a Set</h2>
+<p>A particular item can be removed from set using methods like <code>discard()</code> and <code>remove()</code>. The only difference between the two is that, while using <code>discard()</code> if the item does not exist in the set, it remains unchanged. But <code>remove()</code> will raise an error in such condition. The following example will illustrate this.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">discard</span><span class="pun">(</span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="lit">6</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">discard</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">remove</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">KeyError</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span></code></pre>
+<p>Similarly, we can remove and return an item using the <code>pop()</code>
+ method. Set being unordered, there is no way of determining which item 
+will be popped. It is completely arbitrary. We can also remove all items
+ from a set using <code>clear()</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">set</span><span class="pun">(</span><span class="str">"HelloWorld"</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">()</span><span class="pln">
+</span><span class="str">'r'</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">pop</span><span class="pun">()</span><span class="pln">
+</span><span class="str">'W'</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="pun">{</span><span class="str">'d'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'e'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'H'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'o'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'l'</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set</span><span class="pun">.</span><span class="pln">clear</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set
+</span><span class="kwd">set</span><span class="pun">()</span></code></pre>
+<h2>Python Set Operation</h2>
+<p>Sets can be used to carry out mathematical set operations like union,
+ intersection, difference and symmetric difference. We can do this with 
+operators or methods. Let us consider the following two sets for the 
+following operations.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span></code></pre>
+<h3>Set Union</h3>
+<p><img alt="Set Union in Python" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/set-union.jpg" style="height:264px; width:450px" title="Set Union"></p>
+<p>&nbsp;</p>
+<p>Union of <var>A</var> and <var>B</var> is a set of all elements from both sets. Union is performed using <code>|</code> operator. Same can be accomplished using the method <code>union()</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">|</span><span class="pln"> B
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="kwd">union</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B</span><span class="pun">.</span><span class="kwd">union</span><span class="pun">(</span><span class="pln">A</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span></code></pre>
+<h3>Set Intersection</h3>
+<p><img alt="Set Intersection in Python" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/set-intersection.jpg" style="height:262px; width:450px" title="Set Intersection"></p>
+<p>&nbsp;</p>
+<p></p><div id="block-inject-1" class="block-inject block-inject-1"><div id="block-block-76" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Middle_Content { width: 300px; height: 250px; margin: 15px auto; display: block; }
+@media(min-width: 550px) { .Programiz_Responsive_Middle_Content { width: 336px; height: 280px; } }
+@media(min-width: 760px) { .Programiz_Responsive_Middle_Content { width: 728px; height: 90px; } }
+@media(min-width: 900px) { .Programiz_Responsive_Middle_Content { display: none; } }
+</style>
+
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Programiz_Responsive_Middle_Content -->
+<ins style="width: 728px; height: 90px;" data-adsbygoogle-status="done" class="adsbygoogle Programiz_Responsive_Middle_Content" data-ad-client="ca-pub-9007421361448641" data-ad-slot="8314930428" <="" ins="">
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  <!--No ad requested because of display:none on the adsbygoogle tag--></ins></div>
+</div>
+</div><div class="clearfix"></div><p>Intersection of <var>A</var> and <var>B</var> is a set of elements that are common in both sets. Intersection is performed using <code>&amp;</code> operator. Same can be accomplished using the method <code>intersection()</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">&amp;</span><span class="pln"> B
+</span><span class="pun">{</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">intersection</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B</span><span class="pun">.</span><span class="pln">intersection</span><span class="pun">(</span><span class="pln">A</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">}</span></code></pre>
+<h3>Set Difference</h3>
+<p><img alt="Set Difference in Python" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/set-difference.jpg" style="height:263px; width:450px" title="Set Difference"></p>
+<p>&nbsp;</p>
+<p>Difference of <var>A</var> and <var>B</var> (<var>A</var> - <var>B</var>) is a set of elements that are only in <var>A</var> but not in <var>B</var>. Similarly, <var>B</var> - <var>A</var> is a set of element in <var>B</var> but not in <var>A</var>. Difference is performed using <code>-</code> operator. Same can be accomplished using the method <code>difference()</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">-</span><span class="pln"> B
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">difference</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B </span><span class="pun">-</span><span class="pln"> A
+</span><span class="pun">{</span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B</span><span class="pun">.</span><span class="pln">difference</span><span class="pun">(</span><span class="pln">A</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">}</span></code></pre>
+<h3>Set Symmetric Difference</h3>
+<p><img alt="Set Symmetric Difference in Python" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/set-symmetric-difference.jpg" style="height:256px; width:450px" title="Set Symmetric Difference"></p>
+<p>&nbsp;</p>
+<p>Symmetric Difference of <var>A</var> and <var>B</var> is a set of element in both <var>A</var> and <var>B</var> except those common in both. Symmetric difference is performed using <code>^</code> operator. Same can be accomplished using the method <code>symmetric_difference()</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">^</span><span class="pln"> B
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">symmetric_difference</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B</span><span class="pun">.</span><span class="pln">symmetric_difference</span><span class="pun">(</span><span class="pln">A</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">}</span></code></pre>
+<h2>Python Set Methods</h2>
+<p>There are many set methods, some of which we have already used above.
+ Here is a list of all the methods that are available with set objects.</p>
+<table style="width:489px" border="1">
+	<caption>Python Set Methods</caption>
+	<tbody>
+		<tr>
+			<th scope="col">Method</th>
+			<th scope="col">Description</th>
+		</tr>
+		<tr>
+			<td>add()</td>
+			<td>Add an element to a set</td>
+		</tr>
+		<tr>
+			<td>clear()</td>
+			<td>Remove all elemets form a set</td>
+		</tr>
+		<tr>
+			<td>copy()</td>
+			<td>Return a shallow copy of a set</td>
+		</tr>
+		<tr>
+			<td>difference()</td>
+			<td>Return the difference of two or more sets as a new set</td>
+		</tr>
+		<tr>
+			<td>difference_update()</td>
+			<td>Remove all elements of another set from this set</td>
+		</tr>
+		<tr>
+			<td>discard()</td>
+			<td>Remove an element from set if it is a member. (Do nothing if the element is not in set)</td>
+		</tr>
+		<tr>
+			<td>intersection()</td>
+			<td>Return the intersection of two sets as a new set</td>
+		</tr>
+		<tr>
+			<td>intersection_update()</td>
+			<td>Update the set with the intersection of itself and another</td>
+		</tr>
+		<tr>
+			<td>isdisjoint()</td>
+			<td>Return <code>True</code> if two sets have a null intersection</td>
+		</tr>
+		<tr>
+			<td>issubset()</td>
+			<td>Return <code>True</code> if another set contains this set</td>
+		</tr>
+		<tr>
+			<td>issuperset()</td>
+			<td>Return <code>True</code> if this set contains another set</td>
+		</tr>
+		<tr>
+			<td>pop()</td>
+			<td>Remove and return an arbitary set element. Raise <code>KeyError</code> if the set is empty</td>
+		</tr>
+		<tr>
+			<td>remove()</td>
+			<td>Remove an element from a set. It the element is not a member, raise a <code>KeyError</code></td>
+		</tr>
+		<tr>
+			<td>symmetric_difference()</td>
+			<td>Return the symmetric difference of two sets as a new set</td>
+		</tr>
+		<tr>
+			<td>symmetric_difference_update()</td>
+			<td>Update a set with the symmetric difference of itself and another</td>
+		</tr>
+		<tr>
+			<td>union()</td>
+			<td>Return the union of sets in a new set</td>
+		</tr>
+		<tr>
+			<td>update()</td>
+			<td>Update a set with the union of itself and others</td>
+		</tr>
+	</tbody>
+</table>
+<h2>Other Set Operations</h2>
+<h3>Set Membership Test</h3>
+<p>We can test if an item exists in a set or not, using the keyword <code>in</code>.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> my_set </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">set</span><span class="pun">(</span><span class="str">"apple"</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="str">'a'</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> my_set
+</span><span class="kwd">True</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="str">'p'</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> my_set
+</span><span class="kwd">False</span></code></pre>
+<h3>Iterating Through a Set</h3>
+<p>Using a for loop we can iterate though each item in a set.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> letter </span><span class="kwd">in</span><span class="pln"> </span><span class="kwd">set</span><span class="pun">(</span><span class="str">"apple"</span><span class="pun">):</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">     </span><span class="kwd">print</span><span class="pun">(</span><span class="pln">letter</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">    
+a
+p
+e
+l</span></code></pre>
+<h3>Built-in Functions with Set</h3>
+<p>Built-in functions like <code>all()</code>, <code>any()</code>, <code>enumerate()</code>, <code>len()</code>, <code>max()</code>, <code>min()</code>, <code>sorted()</code>, <code>sum()</code> etc. are commonly used with set to perform different tasks.</p>
+<table style="width:557px" border="1">
+	<caption>Built-in Functions with Set</caption>
+	<tbody>
+		<tr>
+			<th scope="col">Function</th>
+			<th scope="col">Description</th>
+		</tr>
+		<tr>
+			<td>all()</td>
+			<td>Return <code>True</code> if all elements of the set are true (or if the set is empty).</td>
+		</tr>
+		<tr>
+			<td>any()</td>
+			<td>Return <code>True</code> if any element of the set is true. If the set is empty, return <code>False.</code></td>
+		</tr>
+		<tr>
+			<td>enumerate()</td>
+			<td>Return an enumerate object. It contains the index and value of all the items of set as a pair.</td>
+		</tr>
+		<tr>
+			<td>len()</td>
+			<td>Return the length (the number of items) in the set.</td>
+		</tr>
+		<tr>
+			<td>max()</td>
+			<td>Return the largest item in the set.</td>
+		</tr>
+		<tr>
+			<td>min()</td>
+			<td>Return the smallest item in the set.</td>
+		</tr>
+		<tr>
+			<td>sorted()</td>
+			<td>Return a new sorted list from elements in the set(does not sort the set itself).</td>
+		</tr>
+		<tr>
+			<td>sum()</td>
+			<td>Retrun the sum of all elements in the set.</td>
+		</tr>
+	</tbody>
+</table>
+<h2>Python Frozenset</h2>
+<p>Frozenset is a new class that has the characteristics of a set, but 
+its elements cannot be changed once assigned. While tuples are immutable
+ lists, frozensets are immutable sets. Sets being mutable are 
+unhashable, so they can't be used as dictionary keys. On the other hand,
+ frozensets are hashable and can be used as keys to a dictionary.</p>
+<p>Frozensets can be created using the function <code>frozenset()</code>. This datatype supports methods like <code>copy()</code>, <code>difference()</code>, <code>intersection()</code>, <code>isdisjoint()</code>, <code>issubset()</code>, <code>issuperset()</code>, <code>symmetric_difference()</code> and <code>union()</code>. Being immutable it does not have method that add or remove elements.</p>
+<pre style="" class="prettyprint prettyprinted"><code><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">=</span><span class="pln"> frozenset</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">])</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> B </span><span class="pun">=</span><span class="pln"> frozenset</span><span class="pun">([</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">])</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">isdisjoint</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+</span><span class="kwd">False</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">difference</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln">
+frozenset</span><span class="pun">({</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">})</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A </span><span class="pun">|</span><span class="pln"> B
+frozenset</span><span class="pun">({</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">})</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> A</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">3</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">AttributeError</span><span class="pun">:</span><span class="pln"> </span><span class="str">'frozenset'</span><span class="pln"> </span><span class="kwd">object</span><span class="pln"> has </span><span class="kwd">no</span><span class="pln"> attribute </span><span class="str">'add'</span></code></pre>
+</div></div></div>  </div>
+
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                            <div class="content-bottom"> 
+                              <div class="region region-content-bottom">
+    <div id="block-block-47" class="block block-block">
+
+    
+  <div class="content">
+    <style>
+.Programiz_Responsive_Bottom { display: block; width: 300px; height: 250px; margin: 15px auto; }
+@media (max-width: 550px) { .Programiz_Responsive_Bottom { width: 336px; height: 280px } }
+@media(min-width: 760px) { .Programiz_Responsive_Bottom { width: 728px; height: 90px; } }
+@media (min-width: 886px) { .Programiz_Responsive_Bottom { display: none; } }
+</style>
+
+<ins style="width: 728px; height: 90px;" data-adsbygoogle-status="done" class="adsbygoogle Programiz_Responsive_Bottom" data-ad-client="ca-pub-9007421361448641" data-ad-slot="6838197222"><!--No ad requested because of display:none on the adsbygoogle tag--></ins>
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+<div id="block-block-9" class="block block-block">
+
+    
+  <div class="content">
+    
+<div class="chapter cf">
+	  <div class="prev"><a href="http://www.programiz.com/python-programming/string" title="Python Strings"> ◄ Previous Page</a></div>
+  <div class="next"><a href="http://www.programiz.com/python-programming/dictionary" title="Python Dictionary">Next Page ► </a></div>
+</div>
+  </div>
+</div>
+<div id="block-block-68" class="block block-block">
+
+    
+  <div class="content">
+    <script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Responsive Matched Content -->
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display: block; height: 364px;" data-ad-client="ca-pub-9007421361448641" data-ad-slot="2335665225" data-ad-format="autorelaxed"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:364px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:364px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="364" width="728"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>  </div>
+</div>
+  </div>
+                        </div>
+                                </div>
+            </div>
+               
+
+        </section> <!-- main-content End -->
+    </div> <!-- programiz-main-content End -->
+
+            <aside id="programiz-left-sidebar"> <!-- programiz-left-sidebar Start -->
+              <div class="region region-sidebar-left">
+    <div id="block-block-75" class="block block-block">
+
+    
+  <div class="content">
+    <script type="text/javascript">
+    var w = window.innerWidth;
+     if (w > 900)
+     {
+     	document.write('\x3Cscript type="text/javascript">e9 = new Object();e9.size = "300x250";e9.noAd = 1;\x3C/script>\x3Cscript type="text/javascript" src="http://tags.expo9.exponential.com/tags/Programizcom/ROS/tags.js">\x3C/script>');
+     }
+</script><script type="text/javascript">e9 = new Object();e9.size = "300x250";e9.noAd = 1;</script><script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/tags.js"></script><script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/displayAd.js"></script><div id="richmedia_2" align="center"><script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/j.js"></script><iframe scrolling="no" marginheight="0" marginwidth="0" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/a.htm" topmargin="0" leftmargin="0" allowtransparency="1" frameborder="0" height="250" width="300"></iframe>
+
+
+<iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_002.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_003.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_004.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_005.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_006.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_007.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_008.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe><iframe src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/p_009.htm" style="visibility:hidden;position: absolute;top: -15000px;left: -15000px;" marginheight="0" marginwidth="0" scrolling="no" frameborder="0" height="0" width="0"></iframe></div>
+
+
+
+  </div>
+</div>
+<div id="block-block-53" class="block block-block">
+
+    
+  <div class="content">
+    <!-- BuySellAds Zone Code -->
+<div data-serve="CVADT27E" id="bsap_1305034" class="bsap bsap_1305034">
+<style type="text/css">
+div.bsap_1305034{width:100%;display:block;}div.bsap_1305034 a{width:300px;}div.bsap_1305034 a img{padding:0;}div.bsap_1305034 a em{font-style:normal;}div.bsap_1305034 a{display:block;font-size:13px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;height: 200px; float:left;}
+div.bsap_1305034 img{border:0;clear:right;}
+div.bsap_1305034 a.adhere{color:#666;font-weight:bold;font-size:12px;border:1px solid #ccc;background:#e7e7e7;text-align:center;padding-top:94px;}
+div.bsap_1305034 a.adhere:hover{border:1px solid #999;background:#ccc;color:#333;}
+div.bsap_1305034 iframe{display:block;font-size:13px;color:#888;font-family:verdana,sans-serif;margin:0;text-align:center;text-decoration:none;overflow:hidden;height: 200px; float:left;}div.bsap_1305034 a{line-height:100%;}div.bsap_1305034 a.adhere{width:300px;height:250px;line-height:2000%;}html>body div.bsap_1305034 a.adhere{width:298px;height:248px;}div.bsap_1305034 img.s{height:0;width:0;}div.bsap_1305034{line-height:9px;}div.bsap_1305034 .bsap_adhere a{height:19px !important;width:298px !important;font-size:10px;background:#f1f1f1;border:1px solid #e1e1e1;border-top:none;border-radius: 0 0 2px 2px;line-height:16px;}.bsap_backfillframe{border:0;}
+</style>
+<!-- no ad -->
+<script class="ignoreme" id="auto_1" type="text/javascript"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+<!-- End BuySellAds Zone Code -->  </div>
+</div>
+<div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <nav class="header-list-menu">
+	<h2>Python Tutorial</h2>
+	<ul class="topmenu">
+		<li>
+			<h3>Python Introduction<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/keywords-identifier">Keywords and Identifier</a></li>
+				<li><a href="http://www.programiz.com/python-programming/statement-indentation-comments">Statements&nbsp;&amp; Comments</a></li>
+				<li><a href="http://www.programiz.com/python-programming/variables-datatypes">Python &nbsp;Datatypes</a></li>
+				<li><a href="http://www.programiz.com/python-programming/input-output-import">Python I/O and Import</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operators">Python Operators</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Flow Control<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/if-elif-else" title="Python if, else and elif">Python if...else</a></li>
+				<li><a href="http://www.programiz.com/python-programming/for-loop" title="Python for Loop">Python for Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/while-loop" title="Python while Loop">Python while Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/break-continue" title="Python break and continue">Python break and continue</a></li>
+				<li><a href="http://www.programiz.com/python-programming/pass-statement" title="Python Pass Statement">Python Pass</a></li>
+				<li><a href="http://www.programiz.com/python-programming/looping-technique" title="Looping Technique">Looping&nbsp;Technique</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Functions<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/function" title="Functions in Python Programming">Python Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/function-argument" title="Function Argument in Python">Function Argument</a></li>
+				<li><a href="http://www.programiz.com/python-programming/recursion" title="Recursive Function in Python">Python Recursion</a></li>
+				<li><a href="http://www.programiz.com/python-programming/anonymous-function" title="Anonymous Function in Python">Anonymous&nbsp;Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/modules" title="Modules in Python Programming">Python Modules</a></li>
+				<li><a href="http://www.programiz.com/python-programming/package" title="Package in Python Programming">Python Package</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Native Datatypes<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/numbers" title="Numbers in Python Programming">Python Numbers</a></li>
+				<li><a href="http://www.programiz.com/python-programming/list" title="List in Python Programming">Python List</a></li>
+				<li><a href="http://www.programiz.com/python-programming/tuple" title="Tuple in Python Programming">Python Tuple</a></li>
+				<li><a href="http://www.programiz.com/python-programming/string" title="String in Python Programming">Python String</a></li>
+				<li class="currentPage"><a href="http://www.programiz.com/python-programming/set" title="Set in Python Programming">Python Set</a></li>
+				<li><a href="http://www.programiz.com/python-programming/dictionary" title="Dictionary in Python Programming">Python Dictionary</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Files<span class="indicator_show"></span></h3>
+			<ul class="submenu visuallynothidden">
+				<li><a href="http://www.programiz.com/python-programming/file-operation">Python File Operation</a></li>
+				<li><a href="http://www.programiz.com/python-programming/directory">Python Directory</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exceptions">Python Exception</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exception-handling">Exception Handling</a></li>
+				<li><a href="http://www.programiz.com/python-programming/user-defined-exception">User-defined Exception</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Object &amp; Class<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/namespace" title="Python Programming Namespace">Python Namespace</a></li>
+				<li><a href="http://www.programiz.com/python-programming/class" title="Python Programming Class">Python Class</a></li>
+				<li><a href="http://www.programiz.com/python-programming/inheritance" title="Python Programming Inheritance">Python Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/multiple-inheritance" title="Multiple Inheritance in Python">Multiple Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operator-overloading" title="Python Operator Overloading">Operator Overloading</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Additional Topics<span class="indicator_hide"></span></h3>
+			<ul class="submenu visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/iterator">Python Iterator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/generator">Python Generator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/closure">Python Closure</a></li>
+				<li><a href="http://www.programiz.com/python-programming/decorator" title="Decorators in Python">Python Decorators</a></li>
+				<li><a href="http://www.programiz.com/python-programming/property" title="Python programming property">Python Property</a></li>
+				<li><a href="http://www.programiz.com/python-programming/examples" title="Source code of Python">Python Examples</a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+  </div>
+</div>
+<div id="block-block-45" class="block block-block">
+
+    
+  <div class="content">
+    <br>
+<style type="text/css">
+.Programiz_Responsive_Left1 { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Left1 { display: block; }} 
+</style>
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Programiz Responsive Left1 -->
+<ins style="height: 250px;" data-adsbygoogle-status="done" class="adsbygoogle Programiz_Responsive_Left1" data-ad-client="ca-pub-9007421361448641" data-ad-slot="2944551229" data-ad-format="rectangle"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="250" width="300"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>  </div>
+</div>
+<div id="block-block-29" class="block block-block">
+
+    
+  <div class="content">
+    <div class="subscribe ml-subscribe-form ml-subscribe-form-1819301" id="mlb2-1819301">
+	<h3>Receive the latest tutorial to improve your programming skills.</h3>
+	<div class="ml-vertical-align-center">
+		<div class="subscribe-form ml-block-success" style="display:none">
+			<div class="form-section">
+				<p>You have successfully subscribed to Python newsletter.</p>
+			</div>
+		</div>
+		<form action="//app.mailerlite.com/webforms/submit/s8v2x9" class="ml-block-form" data-code="s8v2x9" method="POST" target="_blank"><input class="form-control" name="fields[email]" placeholder="Enter Email Address*" type="text"> <input name="ml-submit" value="1" type="hidden"><button class="primary" type="submit">Join</button></form>
+		<script>
+            function ml_webform_success_1819301() {
+                jQuery('.ml-subscribe-form-1819301 .ml-block-success').show();
+                jQuery('.ml-subscribe-form-1819301 .ml-block-form').hide();
+            };
+        </script></div>
+</div>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/webforms.js"></script>  </div>
+</div>
+<div id="block-block-46" class="block block-block">
+
+    
+  <div class="content">
+    <br>
+<style type="text/css">
+.Programiz_Responsive_Left2 { display: none; }
+@media(min-width: 900px) { .Programiz_Responsive_Left2 { display: block; width: 300px; height: 600px; }} 
+</style>
+<script async="" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/adsbygoogle.js"></script>
+<!-- Programiz Responsive Left2 -->
+<ins style="height: 600px;" data-adsbygoogle-status="done" class="adsbygoogle Programiz_Responsive_Left2" data-ad-client="ca-pub-9007421361448641" data-ad-slot="4421284423" data-ad-format="auto"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_3_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;" frameborder="0" height="600" width="300"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>  </div>
+</div>
+  </div>
+        </aside>  <!-- programiz-left-sidebar End -->
+        
+</div> <!-- main-wrapper End -->
+
+
+<footer id="footer">
+    <div class="footer-misc clearfix">
+            </div>
+</footer>
+
+<div class="copyright">
+    Copyright © by Programiz | All rights reserved | <a href="http://www.programiz.com/privacy-policy">Privacy Policy</a>
+</div>
+<script async="" type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/fancybar.js" id="_fancybar_js"></script>
+
+  <script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_wMq06n34El81cPtKvKVuAehyOEwepE71d1W2gGcEjDE.js"></script>
+<script type="text/javascript" src="Python%20Sets%20%20Methods,%20Operations%20and%20Frozen%20Sets%20-%20Programiz_files/js_ZPMVUwauT3CzfUSIYk-Kc3nwhp80i90VcKjYuHm5owQ.js"></script>
+
+<div class="sidr left" id="sidr-left"><div class="sidr-inner">
+	<h2>Python Tutorial</h2>
+	<ul class="sidr-class-topmenu">
+		<li>
+			<h3>Python Introduction<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/keywords-identifier">Keywords and Identifier</a></li>
+				<li><a href="http://www.programiz.com/python-programming/statement-indentation-comments">Statements&nbsp;&amp; Comments</a></li>
+				<li><a href="http://www.programiz.com/python-programming/variables-datatypes">Python &nbsp;Datatypes</a></li>
+				<li><a href="http://www.programiz.com/python-programming/input-output-import">Python I/O and Import</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operators">Python Operators</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Flow Control<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/if-elif-else" title="Python if, else and elif">Python if...else</a></li>
+				<li><a href="http://www.programiz.com/python-programming/for-loop" title="Python for Loop">Python for Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/while-loop" title="Python while Loop">Python while Loop</a></li>
+				<li><a href="http://www.programiz.com/python-programming/break-continue" title="Python break and continue">Python break and continue</a></li>
+				<li><a href="http://www.programiz.com/python-programming/pass-statement" title="Python Pass Statement">Python Pass</a></li>
+				<li><a href="http://www.programiz.com/python-programming/looping-technique" title="Looping Technique">Looping&nbsp;Technique</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Functions<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/function" title="Functions in Python Programming">Python Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/function-argument" title="Function Argument in Python">Function Argument</a></li>
+				<li><a href="http://www.programiz.com/python-programming/recursion" title="Recursive Function in Python">Python Recursion</a></li>
+				<li><a href="http://www.programiz.com/python-programming/anonymous-function" title="Anonymous Function in Python">Anonymous&nbsp;Function</a></li>
+				<li><a href="http://www.programiz.com/python-programming/modules" title="Modules in Python Programming">Python Modules</a></li>
+				<li><a href="http://www.programiz.com/python-programming/package" title="Package in Python Programming">Python Package</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Native Datatypes<span class="sidr-class-indicator_show"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallynothidden">
+				<li><a href="http://www.programiz.com/python-programming/numbers" title="Numbers in Python Programming">Python Numbers</a></li>
+				<li><a href="http://www.programiz.com/python-programming/list" title="List in Python Programming">Python List</a></li>
+				<li><a href="http://www.programiz.com/python-programming/tuple" title="Tuple in Python Programming">Python Tuple</a></li>
+				<li><a href="http://www.programiz.com/python-programming/string" title="String in Python Programming">Python String</a></li>
+				<li class="sidr-class-currentPage"><a href="http://www.programiz.com/python-programming/set" title="Set in Python Programming">Python Set</a></li>
+				<li><a href="http://www.programiz.com/python-programming/dictionary" title="Dictionary in Python Programming">Python Dictionary</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Files<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/file-operation">Python File Operation</a></li>
+				<li><a href="http://www.programiz.com/python-programming/directory">Python Directory</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exceptions">Python Exception</a></li>
+				<li><a href="http://www.programiz.com/python-programming/exception-handling">Exception Handling</a></li>
+				<li><a href="http://www.programiz.com/python-programming/user-defined-exception">User-defined Exception</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Python Object &amp; Class<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/namespace" title="Python Programming Namespace">Python Namespace</a></li>
+				<li><a href="http://www.programiz.com/python-programming/class" title="Python Programming Class">Python Class</a></li>
+				<li><a href="http://www.programiz.com/python-programming/inheritance" title="Python Programming Inheritance">Python Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/multiple-inheritance" title="Multiple Inheritance in Python">Multiple Inheritance</a></li>
+				<li><a href="http://www.programiz.com/python-programming/operator-overloading" title="Python Operator Overloading">Operator Overloading</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Additional Topics<span class="sidr-class-indicator_hide"></span></h3>
+			<ul class="sidr-class-submenu sidr-class-visuallyhidden">
+				<li><a href="http://www.programiz.com/python-programming/iterator">Python Iterator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/generator">Python Generator</a></li>
+				<li><a href="http://www.programiz.com/python-programming/closure">Python Closure</a></li>
+				<li><a href="http://www.programiz.com/python-programming/decorator" title="Decorators in Python">Python Decorators</a></li>
+				<li><a href="http://www.programiz.com/python-programming/property" title="Python programming property">Python Property</a></li>
+				<li><a href="http://www.programiz.com/python-programming/examples" title="Source code of Python">Python Examples</a></li>
+			</ul>
+		</li>
+	</ul>
+</div></div><table class="gstl_50 gssb_c" style="width: 2px; display: none; top: 3px; left: -1px; position: absolute;" cellpadding="0" cellspacing="0"><tbody><tr><td class="gssb_f"></td><td style="width: 100%;" class="gssb_e"></td></tr></tbody></table></body></html>
