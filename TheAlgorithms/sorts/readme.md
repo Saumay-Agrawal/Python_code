@@ -1,4 +1,4 @@
-## The Algorithms
+## Sorting Algorithms
 
 To try out various kinds of sorting algorithms using python.
 
