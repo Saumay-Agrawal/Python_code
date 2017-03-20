@@ -1,6 +1,6 @@
 ##The Algorithms
 
-To try out various kinds of algorithms like sorting, searching etc. using python.
+To try out various kinds of sorting algorithms using python.
 
 To run:
 >Clone the repository locally.
